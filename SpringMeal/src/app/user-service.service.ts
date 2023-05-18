@@ -15,12 +15,24 @@ export class UserServiceService {
   register(user:any):Observable<any>{
     return this.http.post('http://localhost:6752/api/auth/signup', user, {responseType: 'text'});
   }
+  get(id:string): Observable<any> {
+    return this.http.get('http://localhost:6752/api/users/'+id);
+  }
+  update(id:string, user:any): Observable<any> {
+    return this.http.put('http://localhost:6752/api/users/'+id, user);
+  }
 
   setToken(token:string){
     this.cookies.set("token", token);
   }
+  setUserID(id:string) {
+    this.cookies.set("userid",id)
+  }
 
   getToken(){
     return this.cookies.get("token");
+  }
+  getUserID(){
+    return this.cookies.get("userid");
   }
 }

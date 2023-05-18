@@ -23,12 +23,17 @@ export class LoginComponent {
     const user = { username: this.username, password: this.password };
     this.userService.login(user).subscribe((data) => {
       this.userService.setToken(data.token);
+      this.userService.setUserID(data.userid);
       this.router.navigateByUrl("/");
       console.log(data);
     },
     error =>{
       console.log(error);
     });
+    // ---- DELETE THIS -----------
+    this.userService.setUserID(this.username);
+    this.router.navigateByUrl("/profile");
+    // -----------------------
   }
 
 }
