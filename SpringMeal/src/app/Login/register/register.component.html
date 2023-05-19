@@ -4,7 +4,9 @@
       <div class="page-header min-vh-100">
         <div class="container">
           <div class="row">
-            <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 start-0 text-center justify-content-center flex-column">
+            <div
+              class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 start-0 text-center justify-content-center flex-column"
+            >
               <div
                 class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center"
                 style="
@@ -22,40 +24,190 @@
                   <p class="mb-0">Enter your email and password to register</p>
                 </div>
                 <div class="card-body">
-                  <form role="form" method="post">
+                  <form [formGroup]="formRegister" (ngSubmit)="onSubmit()">
                     <div class="input-group input-group-outline mb-3">
                       <label class="form-label"></label>
-                      <input type="text" [(ngModel)]="username" class="form-control" placeholder="Username" required="required" />
+                      <input
+                        type="text"
+                        placeholder="Username"
+                        required="required"
+                        class="form-control"
+                        formControlName="username"
+                        [ngClass]="{
+                          'is-invalid': submitted && f['username'].errors
+                        }"
+                      />
+                      <div
+                        *ngIf="f['username'].errors"
+                        class="invalid-feedback"
+                      >
+                        <div *ngIf="f['username'].errors['required']">
+                          Username is required
+                        </div>
+                        <div *ngIf="f['username'].errors['minlength']">
+                          Username must have at least 6 characters
+                        </div>
+                        <div *ngIf="f['username'].errors['maxlength']">
+                          Username must not exceed 20 characters
+                        </div>
+                      </div>
                     </div>
                     <div class="input-group input-group-outline mb-3">
                       <label class="form-label"></label>
-                      <input type="password" [(ngModel)]="password" class="form-control" name="password" placeholder="Password" required="required"/>
+                      <input
+                        type="password"
+                        placeholder="Password"
+                        required="required"
+                        class="form-control"
+                        formControlName="password"
+                        [ngClass]="{
+                          'is-invalid': submitted && f['password'].errors
+                        }"
+                      />
+                      <div
+                        *ngIf="f['password'].errors"
+                        class="invalid-feedback"
+                      >
+                        <div *ngIf="f['password'].errors['required']">
+                          Password is required
+                        </div>
+                        <div *ngIf="f['password'].errors['minlength']">
+                          Password must have at least 6 characters
+                        </div>
+                        <div *ngIf="f['password'].errors['maxlength']">
+                          Password must not exceed 20 characters
+                        </div>
+                      </div>
                     </div>
                     <div class="input-group input-group-outline mb-3">
                       <label class="form-label"></label>
-                      <input type="text" [(ngModel)]="name" class="form-control" name="name" placeholder="Name" required="required"/>
+                      <input
+                        type="password"
+                        placeholder="Confirm Password"
+                        required="required"
+                        class="form-control"
+                        formControlName="confirmPassword"
+                        [ngClass]="{
+                          'is-invalid': submitted && f['confirmPassword'].errors
+                        }"
+                      />
+                      <div
+                        *ngIf="f['confirmPassword'].errors"
+                        class="invalid-feedback"
+                      >
+                        <div *ngIf="f['confirmPassword'].errors['required']">
+                          Confirm Password is required
+                        </div>
+                        <div *ngIf="f['confirmPassword'].errors['matching']">
+                          Confirm Password does not match
+                        </div>
+                      </div>
                     </div>
                     <div class="input-group input-group-outline mb-3">
                       <label class="form-label"></label>
-                      <input type="text" [(ngModel)]="surname" class="form-control" name="surname" placeholder="Surname" required="required"/>
+                      <input
+                        type="text"
+                        placeholder="Name"
+                        required="required"
+                        class="form-control"
+                        formControlName="name"
+                        [ngClass]="{
+                          'is-invalid': submitted && f['name'].errors
+                        }"
+                      />
+                      <div *ngIf="f['name'].errors" class="invalid-feedback">
+                        <div *ngIf="f['name'].errors['required']">
+                          Name is required
+                        </div>
+                        <div *ngIf="f['name'].errors['minlength']">
+                          Name must have at least 3 characters
+                        </div>
+                        <div *ngIf="f['name'].errors['maxlength']">
+                          Name must not exceed 20 characters
+                        </div>
+                      </div>
                     </div>
                     <div class="input-group input-group-outline mb-3">
                       <label class="form-label"></label>
-                      <input type="text" [(ngModel)]="dni" class="form-control" name="dni" placeholder="DNI" required="required"/>
+                      <input
+                        type="text"
+                        placeholder="Surname"
+                        required="required"
+                        class="form-control"
+                        formControlName="surname"
+                        [ngClass]="{
+                          'is-invalid': submitted && f['surname'].errors
+                        }"
+                      />
+                      <div *ngIf="f['surname'].errors" class="invalid-feedback">
+                        <div *ngIf="f['surname'].errors['required']">
+                          Surname is required
+                        </div>
+                        <div *ngIf="f['surname'].errors['minlength']">
+                          Surname must have at least 3 characters
+                        </div>
+                        <div *ngIf="f['surname'].errors['maxlength']">
+                          Surname must not exceed 50 characters
+                        </div>
+                      </div>
                     </div>
                     <div class="input-group input-group-outline mb-3">
                       <label class="form-label"></label>
-                      <input type="email" [(ngModel)]="email" class="form-control" name="email" placeholder="Email" required="required"/>
+                      <input
+                        type="text"
+                        placeholder="DNI"
+                        required="required"
+                        class="form-control"
+                        formControlName="dni"
+                        [ngClass]="{
+                          'is-invalid': submitted && f['dni'].errors
+                        }"
+                      />
+                      <div *ngIf="f['dni'].errors" class="invalid-feedback">
+                        <div *ngIf="f['dni'].errors['required']">
+                          DNI is required
+                        </div>
+                        <div *ngIf="f['dni'].errors['minlength']">
+                          DNI must have at least 9 characters
+                        </div>
+                        <div *ngIf="f['dni'].errors['maxlength']">
+                          DNI must not exceed 9 characters
+                        </div>
+                      </div>
                     </div>
+                    <div class="input-group input-group-outline mb-3">
+                      <label class="form-label"></label>
+                      <input
+                        type="text"
+                        placeholder="Email"
+                        required="required"
+                        class="form-control"
+                        formControlName="email"
+                        [ngClass]="{
+                          'is-invalid': submitted && f['email'].errors
+                        }"
+                      />
+                      <div *ngIf="f['email'].errors" class="invalid-feedback">
+                        <div *ngIf="f['email'].errors['required']">
+                          Email is required
+                        </div>
+                        <div *ngIf="f['email'].errors['email']">
+                          Email is invalid
+                        </div>
+                      </div>
+                    </div>
+
                     <div class="form-check form-check-info text-start ps-0">
                       <input
                         class="form-check-input"
                         type="checkbox"
                         value=""
+                        formControlName="acceptTerms"
                         id="flexCheckDefault"
+                        [ngClass]="{ 'is-invalid': submitted && f['acceptTerms'].errors }"
                         checked
                       />
-                      <label class="form-check-label" for="flexCheckDefault">
+                      <label class="form-check-label" for="acceptTerms">
                         I agree the
                         <a
                           href="javascript:;"
@@ -63,10 +215,18 @@
                           >Terms and Conditions</a
                         >
                       </label>
+                      <div
+                        *ngIf="submitted && f['acceptTerms'].errors"
+                        class="invalid-feedback"
+                      >
+                        Accept Terms is required
+                      </div>
                     </div>
+
                     <div class="text-center">
                       <button
-                        type="submit" (click)="register()"
+                        type="submit"
+
                         class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0"
                       >
                         Sign Up

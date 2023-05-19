@@ -12,6 +12,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { CategoryComponent } from './category/category.component';
+import { DishComponent } from './dish/dish.component';
+import { OrderComponent } from './order/order.component';
 
 
 @NgModule({
@@ -20,7 +23,10 @@ import { NavbarComponent } from './navbar/navbar.component';
     LoginComponent,
     RegisterComponent,
     WelcomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    CategoryComponent,
+    DishComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,

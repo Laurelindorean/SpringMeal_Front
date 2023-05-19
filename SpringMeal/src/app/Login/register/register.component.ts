@@ -1,21 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserServiceService } from 'src/app/user-service.service';
+import { Validation } from '../utils/Validation';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
 })
-export class RegisterComponent implements OnInit{
+export class RegisterComponent implements OnInit {
+  /*
   username!: string;
   password!: string;
   name!: string;
   surname!: string;
   dni!: string;
   email!: string;
-  myForm!:FormGroup;
+*/
+  formRegister: FormGroup;
+  submitted = false;
+  /*
   user!: {
     username: string;
     password: string;
@@ -24,18 +35,104 @@ export class RegisterComponent implements OnInit{
     dni: string;
     email: string;
   };
-
-  constructor(private userService: UserServiceService, public router: Router) {
+*/
+  constructor(
+    private formBuilder: FormBuilder,
+    private userService: UserServiceService,
+    public router: Router
+  ) {
+    this.formRegister = new FormGroup({
+      username: new FormControl(''),
+      password: new FormControl(''),
+      confirmPassword: new FormControl(''),
+      name: new FormControl(''),
+      surname: new FormControl(''),
+      dni: new FormControl(''),
+      email: new FormControl(''),
+      acceptTerms: new FormControl(false),
+    });
   }
 
   ngOnInit(): void {
+    this.formRegister = this.formBuilder.group({
+      username: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(20),
+        ],
+      ],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(40),
+        ],
+      ],
+      confirmPassword: ['', [Validators.required]],
+      name:[
+        '',[
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(20),
+        ],
+      ],
+      surname:[
+        '',[
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(50),
+        ],
+      ],
+      dni:[
+        '',[
+          Validators.required,
+          Validators.minLength(9),
+          Validators.maxLength(9),
 
-
+        ],
+      ],
+      email:[
+        '',[
+          Validators.required,
+          Validators.email
+        ],
+      ],
+      acceptTerms:[false, Validators.requiredTrue],
+    },
+    {
+      validators:[Validation.match('password', 'confirmPassword')],
+    }
+    );
   }
-  saveData(){
-    console.log(this.myForm.value)
+
+  get f(): { [key: string]: AbstractControl } {
+    return this.formRegister.controls;
   }
 
+  onSubmit(): void {
+    this.submitted = true;
+
+    if (this.formRegister.invalid) {
+      return;
+    }
+
+    console.log(JSON.stringify(this.formRegister.value, null, 2));
+    console.log(this.formRegister.value);
+    this.userService.register(this.formRegister.value).subscribe(
+      (data) => {
+        this.router.navigate(['/login']);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  
+  /*
   register() {
 
       const user = {
@@ -67,4 +164,5 @@ export class RegisterComponent implements OnInit{
     this.dni = '';
     this.email = '';
   }
+  */
 }
