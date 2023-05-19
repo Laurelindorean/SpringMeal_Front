@@ -10,6 +10,7 @@ import { LoginComponent } from './Login/login/login.component';
 import { RegisterComponent } from './Login/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
+import { WelcomeComponent } from './welcome/welcome.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProfileComponent } from './profile/profile.component';
 
@@ -19,6 +20,7 @@ import { ProfileComponent } from './profile/profile.component';
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    WelcomeComponent,
     ContactComponent,
     ProfileComponent
   ],

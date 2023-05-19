@@ -23,11 +23,11 @@ export class LoginComponent {
     const user = { username: this.username, password: this.password };
     this.userService.login(user).subscribe((data) => {
       this.userService.setToken(data.token);
-      this.userService.setUserID(data.userid);
-      this.router.navigateByUrl("/profile");
+      this.router.navigateByUrl("/welcome");
       console.log(data);
     },
     error =>{
+      alert("Wrong Username or Password");
       console.log(error);
     });
     // ---- DELETE THIS -----------

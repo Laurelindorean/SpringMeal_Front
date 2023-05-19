@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs/internal/Observable';
@@ -31,6 +31,12 @@ export class UserServiceService {
 
   getToken(){
     return this.cookies.get("token");
+  }
+
+  getHeaders() {
+    return new HttpHeaders({
+      'Authorization': `Bearer ${this.getToken()}`
+    });
   }
   getUserID(){
     return this.cookies.get("userid");
