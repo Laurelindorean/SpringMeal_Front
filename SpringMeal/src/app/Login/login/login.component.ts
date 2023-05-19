@@ -24,14 +24,14 @@ export class LoginComponent {
     this.userService.login(user).subscribe((data) => {
       this.userService.setToken(data.token);
       this.userService.setUserID(data.userid);
-      this.router.navigateByUrl("/");
+      this.router.navigateByUrl("/profile");
       console.log(data);
     },
     error =>{
       console.log(error);
     });
     // ---- DELETE THIS -----------
-    this.userService.setUserID(this.username);
+    //this.userService.setUserID(this.username);
     this.router.navigateByUrl("/profile");
     // -----------------------
   }
