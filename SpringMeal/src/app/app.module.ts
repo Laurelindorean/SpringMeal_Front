@@ -11,6 +11,7 @@ import { RegisterComponent } from './Login/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
