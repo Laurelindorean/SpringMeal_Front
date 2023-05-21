@@ -3,8 +3,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 import { NgForm } from '@angular/forms';
-import { UserServiceService } from 'src/app/user-service.service';
+
 import { Router } from '@angular/router';
+import { UserServiceService } from 'src/app/Service/user-service.service';
 
 @Component({
   selector: 'app-login',
@@ -15,21 +16,20 @@ export class LoginComponent {
   username!: string;
   password!: string;
 
-  constructor(private userService: UserServiceService, public router:Router) {}
+
+  constructor(private userService: UserServiceService, public router: Router) {}
 
   login() {
-    console.log(this.username);
-    console.log(this.password);
     const user = { username: this.username, password: this.password };
-    this.userService.login(user).subscribe((data) => {
-      this.userService.setToken(data.token);
-      this.router.navigateByUrl("/welcome");
-      console.log(data);
-    },
-    error =>{
-      alert("Wrong Username or Password");
-      console.log(error);
-    });
+    this.userService.login(user).subscribe(
+      (data) => {
+        this.userService.setToken(data.token);
+        this.userService.setRole(data.roleName);
+        this.router.navigateByUrl('/welcome');
+      },
+      (error) => {
+        alert('Wrong Username or Password');
+      }
+    );
   }
-
 }

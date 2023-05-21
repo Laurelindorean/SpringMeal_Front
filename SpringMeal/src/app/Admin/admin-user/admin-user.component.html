@@ -1,0 +1,123 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card my-4">
+      <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+        <div
+          class="navbar navbar-expand-lg bg-body-tertiary bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3"
+        >
+          <div class="container-fluid">
+            <a class="navbar-brand"
+              ><h6 class="text-white text-capitalize ps-3">
+                Users Management
+              </h6></a
+            >
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle text-white text-capitalize ps-3"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Options
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/admin/order">Order Management</a></li>
+                    <li><a class="dropdown-item" href="/admin/dish">Dish Management</a></li>
+                    <li><a class="dropdown-item" href="/admin/category">Category Management</a></li>
+
+                  </ul>
+                </li>
+              </ul>
+
+            </div>
+
+          </div>
+        </div>
+        <div class="card-body px-0 pb-2">
+          <div class="table-responsive p-0">
+            <table class="table align-items-center mb-0">
+              <thead>
+                <tr>
+                  <th
+                    class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7"
+                  >
+                    ID user
+                  </th>
+                  <th
+                    class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7"
+                  >
+                    Username
+                  </th>
+                  <th
+                    class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7"
+                  >
+                    Name
+                  </th>
+                  <th
+                    class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7"
+                  >
+                    Surname
+                  </th>
+                  <th
+                    class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7"
+                  >
+                    DNI
+                  </th>
+                  <th
+                    class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7"
+                  >
+                    email
+                  </th>
+                  <th class="text-center text-secondary opacity-5">Options</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of users">
+                  <td class="align-middle text-center">
+                    <span class="badge badge-sm bg-gradient-success">{{
+                      user.idUser
+                    }}</span>
+                  </td>
+                  <td class="align-middle text-center">
+                    <span class="badge badge-sm bg-gradient-success">{{
+                      user.username
+                    }}</span>
+                  </td>
+                  <td class="align-middle text-center text-sm">
+                    <p class="text-xs font-weight-bold mb-0">{{ user.name }}</p>
+                  </td>
+                  <td class="align-middle text-center">
+                    <span class="text-secondary text-xs font-weight-bold">{{
+                      user.surname
+                    }}</span>
+                  </td>
+                  <td class="align-middle text-center">
+                    <span class="text-secondary text-xs font-weight-bold">{{
+                      user.dni
+                    }}</span>
+                  </td>
+                  <td class="align-middle text-center">
+                    <span class="text-secondary text-xs font-weight-bold">{{
+                      user.email
+                    }}</span>
+                  </td>
+                  <td class="align-middle text-center">
+                    <button class="btn bg-gradient-success">Edit</button>
+                    <button class="btn bg-gradient-primary">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+  <div class="align-middle text-center">
+    <button class="btn bg-gradient-primary" (click)="return()">Return</button>
+  </div>
+</div>

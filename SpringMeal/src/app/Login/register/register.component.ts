@@ -7,8 +7,9 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserServiceService } from 'src/app/user-service.service';
+
 import { Validation } from '../utils/Validation';
+import { UserServiceService } from 'src/app/Service/user-service.service';
 
 @Component({
   selector: 'app-register',
@@ -131,7 +132,7 @@ export class RegisterComponent implements OnInit {
     );
   }
 
-  
+
   /*
   register() {
 

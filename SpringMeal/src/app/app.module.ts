@@ -15,6 +15,13 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CategoryComponent } from './category/category.component';
 import { DishComponent } from './dish/dish.component';
 import { OrderComponent } from './order/order.component';
+import { AdminDishComponent } from './Admin/admin-dish/admin-dish.component';
+import { AdminOrderComponent } from './Admin/admin-order/admin-order.component';
+import { AdminUserComponent } from './Admin/admin-user/admin-user.component';
+import { AdminSlotComponent } from './Admin/admin-slot/admin-slot.component';
+import { AdminCategoryComponent } from './Admin/admin-category/admin-category.component';
+import { ModalComponent } from './Modal/modal/modal.component';
+
 
 
 @NgModule({
@@ -26,14 +33,22 @@ import { OrderComponent } from './order/order.component';
     NavbarComponent,
     CategoryComponent,
     DishComponent,
-    OrderComponent
+    OrderComponent,
+    AdminDishComponent,
+    AdminOrderComponent,
+    AdminUserComponent,
+    AdminSlotComponent,
+    AdminCategoryComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
+
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

@@ -2,7 +2,8 @@
   <div class="row">
     <div class="col-12">
       <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg blur border-radius-xl top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 bg-gradient-primary">
+
+      <nav class="navbar navbar-expand-lg blur border-radius-xl top-0 z-index-3 shadow position-relative my-3 py-2 start-0 end-0 bg-gradient-primary">
         <div class="container-fluid ps-2 pe-0">
           <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="/welcome" style="font-size:125%; color:black">
             {{title}}
@@ -17,7 +18,7 @@
           <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav mx-auto">
               <li class="nav-item">
-                <a class="nav-link me-2" href="#">
+                <a class="nav-link me-2" href="/order">
                   <i class="fa fa-store opacity-6 text-dark me-1"></i>
                   Order
                 </a>
@@ -28,16 +29,32 @@
                   Profile
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link me-2" href="#">
-                  <i class="fas fa-key opacity-6 text-dark me-1"></i>
-                  Log out
-                </a>
-              </li>
+
               <li class="nav-item">
                 <a class="nav-link me-2" href="#">
                   <i class="fas fa-address-card opacity-6 text-dark me-1"></i>
                   Contact
+                </a>
+              </li>
+              <li class="nav-item dropdown" *ngIf="isAdmin()">
+                <a class="nav-link me-2 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                  <i class="fas fa-address-card opacity-6 text-dark me-1"></i>
+                  Admin
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item nav-link" href="/admin/order">Order Management</a></li>
+
+                  <li><a class="dropdown-item nav-link" href="/admin/dish">Dish Management</a></li>
+
+                  <li><a class="dropdown-item nav-link" href="/admin/user">User Management</a></li>
+
+                  <li><a class="dropdown-item nav-link" href="/admin/category">Category Management</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link me-2" type="button" (click)="logOut()">
+                  <i class="fas fa-key opacity-6 text-dark me-1"></i>
+                  Log out
                 </a>
               </li>
             </ul>
