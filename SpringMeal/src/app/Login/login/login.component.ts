@@ -30,10 +30,6 @@ export class LoginComponent {
       alert("Wrong Username or Password");
       console.log(error);
     });
-    // ---- DELETE THIS -----------
-    //this.userService.setUserID(this.username);
-    this.router.navigateByUrl("/profile");
-    // -----------------------
   }
 
 }

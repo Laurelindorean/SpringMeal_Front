@@ -13,21 +13,38 @@ export class ProfileComponent {
   editing: boolean = false;
 
   id!: string; 
-  user!: any;
+  user: any = {
+    username: "exemple",
+    password: "exemple",
+    name: "exemple",
+    surname: "exemple",
+    dni: "exemple",
+    email: "exemple",
+  };
   myForm!:FormGroup;
 
   constructor(private userService: UserServiceService, public router: Router, public fb:FormBuilder) {
     this.id = this.userService.getUserID()
-    this.fillFields();
 
-    this.myForm=this.fb.group({
-      username:[this.user.username, [Validators.required]],
-      password:[this.user.password, [Validators.required, Validators.minLength(6)]],
-      name:[this.user.name, [Validators.required]],
-      surname:[this.user.surname, [Validators.required]],
-      dni:[this.user.dni, [Validators.required], Validators.minLength(9), Validators.maxLength(9)],
-      email:[this.user.email, [Validators.required, Validators.email]],
-    })
+
+    this.userService.get(this.id).subscribe(
+      (data) => {
+        this.user = data;
+        /*this.myForm=this.fb.group({
+          username:[this.user.username, [Validators.required]],
+          password:[this.user.password, [Validators.required, Validators.minLength(6)]],
+          name:[this.user.name, [Validators.required]],
+          surname:[this.user.surname, [Validators.required]],
+          dni:[this.user.dni, [Validators.required], Validators.minLength(9), Validators.maxLength(9)],
+          email:[this.user.email, [Validators.required, Validators.email]],
+        })*/
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
+
+    
   }
 
   fillFields() {
