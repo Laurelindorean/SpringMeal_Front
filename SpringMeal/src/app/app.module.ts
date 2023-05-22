@@ -21,7 +21,8 @@ import { AdminUserComponent } from './Admin/admin-user/admin-user.component';
 import { AdminSlotComponent } from './Admin/admin-slot/admin-slot.component';
 import { AdminCategoryComponent } from './Admin/admin-category/admin-category.component';
 import { ModalComponent } from './Modal/modal/modal.component';
-
+import { ContactComponent } from './contact/contact.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -39,7 +40,9 @@ import { ModalComponent } from './Modal/modal/modal.component';
     AdminUserComponent,
     AdminSlotComponent,
     AdminCategoryComponent,
-    ModalComponent
+    ModalComponent,
+    ContactComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
