@@ -43,41 +43,35 @@
           <table class="table align-items-center mb-0">
             <thead>
               <tr>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID Order</th>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Date</th>
-                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Slot</th>
-                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">UserId</th>
-                <th class="text-secondary opacity-7"></th>
+                <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">ID Order</th>
+                <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Date</th>
+                <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Slot</th>
+                <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">UserId</th>
+                <th class="text-center text-secondary opacity-5">Options</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>
-                  <div class="d-flex px-2 py-1">
-                    <div class="d-flex flex-column justify-content-center">
-                      <h6 class="mb-0 text-sm">John Michael</h6>
-                      <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <p class="text-xs font-weight-bold mb-0">Manager</p>
-                  <p class="text-xs text-secondary mb-0">Organization</p>
-                </td>
-                <td class="align-middle text-center text-sm">
-                  <span class="badge badge-sm bg-gradient-success">Online</span>
+              <tr *ngFor="let order of orders">
+                <td class="align-middle text-center">
+                    <span class="badge badge-sm bg-gradient-success">{{order.idOrder}} </span>
                 </td>
                 <td class="align-middle text-center">
-                  <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
+                  <span class="badge badge-sm bg-gradient-success">{{
+                    order.date
+                  }}</span>
                 </td>
-                <td class="align-middle">
-                  <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                    Edit
-                  </a>
-                  <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Delete user">
-                    Delete
-                  </a>
+                <td class="align-middle text-center text-sm">
+                  <p class="text-xs font-weight-bold mb-0">{{ order.slot }}</p>
                 </td>
+                <td class="align-middle text-center">
+                  <span class="text-secondary text-xs font-weight-bold">{{
+                    order.idUser
+                  }}</span>
+                </td>
+               <td class="align-middle text-center">
+                    <button class="btn bg-gradient-success">Edit</button>
+                    <button class="btn bg-gradient-primary">Delete</button>
+                  </td>
               </tr>
             </tbody>
           </table>

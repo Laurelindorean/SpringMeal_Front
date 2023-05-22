@@ -12,7 +12,7 @@ import { CookieService } from 'ngx-cookie-service';
   providedIn: 'root',
 })
 export class ManagementService {
-  private api = 'http://localhost:6752/api';
+  private api = 'https://springmealback-production.up.railway.app/api';
   private token: string;
   private httpHeaders: { headers: HttpHeaders };
 

@@ -46,8 +46,4 @@ export class AdminUserComponent implements OnInit {
     this.router.navigateByUrl('/welcome');
   }
 
-  miMetodoTest() {
-    console.log('Mi Metodo test');
-    console.log();
-  }
 }
