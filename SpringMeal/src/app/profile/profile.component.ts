@@ -41,6 +41,14 @@ export class ProfileComponent {
       },
       (error) => {
         console.log(error);
+        this.user = {
+          username: "error",
+          password: "error",
+          name: "error",
+          surname: "error",
+          dni: "error",
+          email: "error",
+        };
       }
     )
 
