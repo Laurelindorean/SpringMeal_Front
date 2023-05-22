@@ -11,6 +11,8 @@ import { AdminUserComponent } from './Admin/admin-user/admin-user.component';
 import { AdminSlotComponent } from './Admin/admin-slot/admin-slot.component';
 import { AdminCategoryComponent } from './Admin/admin-category/admin-category.component';
 import { AdminOrderComponent } from './Admin/admin-order/admin-order.component';
+import { ContactComponent } from './contact/contact.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
@@ -23,10 +25,12 @@ const routes: Routes = [
   { path: 'admin/slot', component: AdminSlotComponent},
   { path: 'admin/user', component: AdminUserComponent},
   { path: 'order', component: OrderComponent},
+  { path: 'contact', component: ContactComponent },
+  { path: 'profile', component: ProfileComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes)], 
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

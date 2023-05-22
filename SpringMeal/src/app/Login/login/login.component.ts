@@ -25,6 +25,7 @@ export class LoginComponent {
       (data) => {
         this.userService.setToken(data.token);
         this.userService.setRole(data.roleName);
+        this.userService.setUserID(data.userid);
         this.router.navigateByUrl('/welcome');
       },
       (error) => {

@@ -1,0 +1,38 @@
+<!-- user-data.component.html -->
+<div class="container">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="font-weight-bolder">User Data</h4>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <label>Name:</label>
+          <input [(ngModel)]="user.name" class="form-control" [disabled]="!editing" />
+        </div>
+        <div class="form-group">
+          <label>Surname:</label>
+          <input [(ngModel)]="user.surname" class="form-control" [disabled]="!editing" />
+        </div>
+        <div class="form-group">
+          <label>Username:</label>
+          <input [(ngModel)]="user.username" class="form-control" [disabled]="!editing" />
+        </div>
+        <div class="form-group">
+          <label>DNI:</label>
+          <input [(ngModel)]="user.dni" class="form-control" [disabled]="!editing" />
+        </div>
+        <div class="form-group">
+          <label>Email:</label>
+          <input [(ngModel)]="user.email" class="form-control" [disabled]="!editing" />
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="text-center">
+          <button class="btn btn-primary" (click)="toggleEditing()">
+            {{ editing ? 'Save' : 'Edit' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
