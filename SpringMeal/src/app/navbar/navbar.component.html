@@ -19,26 +19,26 @@
             <ul class="navbar-nav mx-auto">
               <li class="nav-item">
                 <a class="nav-link me-2" href="/order">
-                  <i class="fa fa-store opacity-6 text-dark me-1"></i>
+                  <i class="fa fa-store opacity-8 text-dark me-1"></i>
                   Order
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link me-2" href="#">
-                  <i class="fa fa-user opacity-6 text-dark me-1"></i>
+                <a class="nav-link me-2" href="/profile">
+                  <i class="fa fa-user opacity-8 text-dark me-1"></i>
                   Profile
                 </a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link me-2" href="#">
-                  <i class="fas fa-address-card opacity-6 text-dark me-1"></i>
+                <a class="nav-link me-2" href="/contact">
+                  <i class="fas fa-address-card opacity-8 text-dark me-1"></i>
                   Contact
                 </a>
               </li>
               <li class="nav-item dropdown" *ngIf="isAdmin()">
                 <a class="nav-link me-2 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                  <i class="fas fa-address-card opacity-6 text-dark me-1"></i>
+                  <i class="fas fa-lock opacity-8 text-dark me-1"></i>
                   Admin
                 </a>
                 <ul class="dropdown-menu">
@@ -53,7 +53,7 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link me-2" type="button" (click)="logOut()">
-                  <i class="fas fa-key opacity-6 text-dark me-1"></i>
+                  <i class="fas fa-key opacity-8 text-dark me-1"></i>
                   Log out
                 </a>
               </li>
