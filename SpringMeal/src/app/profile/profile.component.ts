@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserServiceService } from '../Service/user-service.service';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
@@ -10,55 +10,77 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
+
   editing: boolean = false;
-
+  submitted = false;
   id!: string; 
-  user: any = {
-    username: "exemple",
-    password: "exemple",
-    name: "exemple",
-    surname: "exemple",
-    dni: "exemple",
-    email: "exemple",
-  };
-  myForm!:FormGroup;
+  user! : any;
+  //form: FormGroup;
 
-  constructor(private userService: UserServiceService, public router: Router, public fb:FormBuilder) {
-    this.id = this.userService.getUserID()
-
-
-    this.userService.get(this.id).subscribe(
-      (data) => {
-        this.user = data;
-        /*this.myForm=this.fb.group({
-          username:[this.user.username, [Validators.required]],
-          password:[this.user.password, [Validators.required, Validators.minLength(6)]],
-          name:[this.user.name, [Validators.required]],
-          surname:[this.user.surname, [Validators.required]],
-          dni:[this.user.dni, [Validators.required], Validators.minLength(9), Validators.maxLength(9)],
-          email:[this.user.email, [Validators.required, Validators.email]],
-        })*/
-      },
-      (error) => {
-        console.log(error);
-        this.user = {
-          username: "error",
-          password: "error",
-          name: "error",
-          surname: "error",
-          dni: "error",
-          email: "error",
-        };
-      }
-    )
-
-    
+  constructor(
+    private formBuilder: FormBuilder,
+    private userService: UserServiceService,
+    public router: Router
+  ) {
+    /*this.form = new FormGroup({
+      username: new FormControl(''),
+      password: new FormControl(''),
+      confirmPassword: new FormControl(''),
+      name: new FormControl(''),
+      surname: new FormControl(''),
+      dni: new FormControl(''),
+      email: new FormControl(''),
+      acceptTerms: new FormControl(false),
+    });*/
   }
+
+  ngOnInit(): void {
+    this.id = this.userService.getUserID()
+    this.fillFields()
+    /*this.form = this.formBuilder.group({
+      username: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(20),
+        ],
+      ],
+      surname:[
+        '',[
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(50),
+        ],
+      ],
+      dni:[
+        '',[
+          Validators.required,
+          Validators.minLength(9),
+          Validators.maxLength(9),
+
+        ],
+      ],
+      email:[
+        '',[
+          Validators.required,
+          Validators.email
+        ],
+      ]
+    }
+    );*/
+  }
+
+  /*get f(): { [key: string]: AbstractControl } {
+    return this.form.controls;
+  }*/
+
 
   fillFields() {
     this.userService.get(this.id).subscribe(
       (data) => {
         this.user = data;
+        //this.form = data;
       },
       (error) => {
         console.log(error);
