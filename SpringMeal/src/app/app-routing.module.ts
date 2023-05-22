@@ -13,6 +13,7 @@ import { AdminCategoryComponent } from './Admin/admin-category/admin-category.co
 import { AdminOrderComponent } from './Admin/admin-order/admin-order.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProfileComponent } from './profile/profile.component';
+import { DishListComponent } from './dish-list/dish-list.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'order', component: OrderComponent},
   { path: 'contact', component: ContactComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'dish-list', component: DishListComponent },
 ];
 
 @NgModule({

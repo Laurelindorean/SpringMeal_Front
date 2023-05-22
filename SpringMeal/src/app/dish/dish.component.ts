@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-dish',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./dish.component.css']
 })
 export class DishComponent {
+  @Input() dish: any;
 
 }

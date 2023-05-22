@@ -23,6 +23,7 @@ import { AdminCategoryComponent } from './Admin/admin-category/admin-category.co
 import { ModalComponent } from './Modal/modal/modal.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProfileComponent } from './profile/profile.component';
+import { DishListComponent } from './dish-list/dish-list.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { ProfileComponent } from './profile/profile.component';
     AdminCategoryComponent,
     ModalComponent,
     ContactComponent,
-    ProfileComponent
+    ProfileComponent,
+    DishListComponent
   ],
   imports: [
     BrowserModule,
