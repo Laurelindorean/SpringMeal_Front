@@ -12,7 +12,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class ProfileComponent {
   editing: boolean = false;
 
-  id!: string; 
+  id!: string;
   user: any = {
     username: "exemple",
     password: "exemple",
@@ -52,7 +52,7 @@ export class ProfileComponent {
       }
     )
 
-    
+
   }
 
   fillFields() {
@@ -80,5 +80,9 @@ export class ProfileComponent {
         this.fillFields();
       }
     );
+  }
+
+  return() {
+    this.router.navigateByUrl('/welcome');
   }
 }

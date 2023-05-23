@@ -13,13 +13,14 @@ import { AdminCategoryComponent } from './Admin/admin-category/admin-category.co
 import { AdminOrderComponent } from './Admin/admin-order/admin-order.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AdminDishComponent } from './Admin/admin-dish/admin-dish.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'login', component: LoginComponent },
   { path: 'sign-up', component: RegisterComponent },
   { path: 'welcome', component: WelcomeComponent },
-  { path: 'admin/dish', component: DishComponent },
+  { path: 'dish', component: DishComponent },
   { path: 'admin/order', component: AdminOrderComponent },
   { path: 'admin/category', component: AdminCategoryComponent},
   { path: 'admin/slot', component: AdminSlotComponent},
@@ -27,10 +28,11 @@ const routes: Routes = [
   { path: 'order', component: OrderComponent},
   { path: 'contact', component: ContactComponent },
   { path: 'profile', component: ProfileComponent },
+  {path: 'admin/dish', component: AdminDishComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)], 
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

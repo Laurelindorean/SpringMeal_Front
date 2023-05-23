@@ -3,8 +3,8 @@
     <div class="col-12">
       <!-- Navbar -->
 
-      <nav class="navbar navbar-expand-lg blur border-radius-xl top-0 z-index-3 shadow position-relative my-3 py-2 start-0 end-0 bg-gradient-primary">
-        <div class="container-fluid ps-2 pe-0">
+      <nav class="navbar navbar-expand-lg custom border-radius-xl top-0 z-index-3 shadow position-relative my-3 py-2 start-0 end-0" >
+        <div class="container-fluid ps-2 pe-0" id="">
           <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="/welcome" style="font-size:125%; color:black">
             {{title}}
           </a>
@@ -17,28 +17,34 @@
           </button>
           <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav mx-auto">
+              <li class="nav-item ">
+                <a class="nav-link me-2 text-white" href="/welcome">
+                  <i class="fa fa-home opacity-10 text-white me-1"></i>
+                  Home
+                </a>
+              </li>
               <li class="nav-item">
-                <a class="nav-link me-2" href="/order">
-                  <i class="fa fa-store opacity-8 text-dark me-1"></i>
+                <a class="nav-link me-2 text-white" href="/order">
+                  <i class="fa fa-store opacity-10 text-white me-1"></i>
                   Order
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link me-2" href="/profile">
-                  <i class="fa fa-user opacity-8 text-dark me-1"></i>
+                <a class="nav-link me-2 text-white" href="/profile">
+                  <i class="fa fa-user opacity-10 text-white me-1"></i>
                   Profile
                 </a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link me-2" href="/contact">
-                  <i class="fas fa-address-card opacity-8 text-dark me-1"></i>
+                <a class="nav-link me-2 text-white" href="/contact">
+                  <i class="fas fa-address-card opacity-10 text-white me-1"></i>
                   Contact
                 </a>
               </li>
               <li class="nav-item dropdown" *ngIf="isAdmin()">
-                <a class="nav-link me-2 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                  <i class="fas fa-lock opacity-8 text-dark me-1"></i>
+                <a class="nav-link me-2 dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">
+                  <i class="fas fa-lock opacity-10 text-dark me-1 text-white"></i>
                   Admin
                 </a>
                 <ul class="dropdown-menu">
@@ -52,8 +58,8 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link me-2" type="button" (click)="logOut()">
-                  <i class="fas fa-key opacity-8 text-dark me-1"></i>
+                <a class="nav-link me-2 text-white" type="button" (click)="logOut()">
+                  <i class="fas fa-key opacity-10 text-white me-1"></i>
                   Log out
                 </a>
               </li>

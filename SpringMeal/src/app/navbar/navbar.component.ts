@@ -8,7 +8,7 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  title:string="Springmeal";
+  title:string="SpringMeal";
 
   constructor(private cookie:CookieService, private router:Router){
 

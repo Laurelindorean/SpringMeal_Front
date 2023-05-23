@@ -1,0 +1,5 @@
+.custom{
+  --bs-btn-color: var(--bs-white);
+  --bs-btn-bg:  #e20074;
+  --bs-btn-hover-bg:#e20074;
+}

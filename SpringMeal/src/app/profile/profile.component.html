@@ -8,7 +8,7 @@
       <div class="card-body">
         <div class="form-group">
           <label>Name:</label>
-          <input [(ngModel)]="user.name" class="form-control" [disabled]="!editing" />
+          <input [(ngModel)]="user.name" class="form-control" re [disabled]="!editing" />
         </div>
         <div class="form-group">
           <label>Surname:</label>
@@ -29,8 +29,12 @@
       </div>
       <div class="card-footer">
         <div class="text-center">
-          <button class="btn btn-primary" (click)="toggleEditing()">
+          <button class="btn custom" (click)="toggleEditing()">
             {{ editing ? 'Save' : 'Edit' }}
+          </button>
+          &nbsp;
+          <button class="btn custom" (click)="return()">
+            Back
           </button>
         </div>
       </div>

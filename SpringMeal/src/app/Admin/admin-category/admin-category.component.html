@@ -1,1 +1,118 @@
-<p>admin-category works!</p>
+<div class="row">
+  <div class="col-12">
+    <div class="card my-4">
+      <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+        <div
+          class="navbar navbar-expand-lg bg-body-tertiary bg-gradient-primary shadow-primary border-radius-lg custom"
+        >
+          <div class="container-fluid">
+            <a class="navbar-brand"
+              ><h6 class="text-white text-capitalize ps-3">
+                Category Management
+              </h6></a
+            >
+            <button
+              class="navbar-toggler shadow-none ms-2"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navigation"
+              aria-controls="navigation"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon mt-2">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navigation">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="/admin/order"
+                    >Order Management</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="/admin/dish"
+                    >Dish Management</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="/admin/user"
+                    >Users Management</a
+                  >
+                </li>
+                <li class="nav-item dropdown"></li>
+              </ul>
+              <form class="d-flex" role="search">
+                <input
+                  class="form-control"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <button
+                  class="btn btn-outline-light btn-sm button_search"
+                  style="width: 120px; margin-top: 15px"
+                  type="submit"
+                >
+                  Search
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+          <div class="container-fluid button-add">
+            <button class="btn bg-gradient-primary" (click)="addCategory()" >Add New Category</button>
+          </div>
+
+
+        <div class="card-body px-0 pb-2">
+          <div class="table-responsive p-0">
+            <table class="table align-items-center mb-0">
+              <thead>
+                <tr>
+                  <th
+                    class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-9"
+                  >
+                    ID Category
+                  </th>
+                  <th
+                    class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-9"
+                  >
+                    Name
+                  </th>
+                  <th class="text-center text-secondary opacity-9">Options</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let category of categories">
+                  <td class="align-middle text-center">
+                    <span class="badge badge-sm bg-gradient-success"
+                      >{{ category.idCategory }}
+                    </span>
+                  </td>
+                  <td class="align-middle text-center">
+                    <span class="badge badge-sm bg-gradient-success">{{
+                      category.name
+                    }}</span>
+                  </td>
+                  <td class="align-middle text-center">
+                    <button class="btn bg-gradient-success">Edit</button>
+                    &nbsp;
+                    <button class="btn bg-gradient-primary">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="align-middle text-center">
+    <button class="btn bg-gradient-primary" (click)="return()">Back</button>
+  </div>
+</div>
