@@ -37,14 +37,14 @@ export class UserServiceService {
   }
 
   setUserID(id:string) {
-    this.cookie.set("userid",id)
-  }
+    this.cookie.set("userid",id, 30, "/");
+    }
   getUserID(){
     return this.cookie.get("userid");
   }
 
   setToken(token:string){
-    this.cookie.set("token", token);
+    this.cookie.set("token", token, 30, "/");
   }
 
   // returns the token
@@ -53,7 +53,7 @@ export class UserServiceService {
   }
 
   setRole(roleName:string){
-    this.cookie.set("roleName", roleName);
+    this.cookie.set("roleName", roleName, 30, "/");
   }
 
   getRole(){

@@ -56,11 +56,14 @@
     <input type="text" id="lname" name="lastname" placeholder="Your last name..">
 
     <label for="lname">Email</label>
-    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+    <input type="text" id="lname" name="lastname" placeholder="Your email adress">
     <label for="subject">Message</label>
     <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
 
     <input class="btn bg-gradient-primary" type="submit" value="Submit">
+    <div class="align-middle text-center">
+      <button class="btn bg-gradient-primary" (click)="return()">Back</button>
+    </div>
   </form>
 </div>
 <footer class="footer position-relative bottom-1 py-2 w-100">

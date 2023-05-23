@@ -19,7 +19,8 @@ export class NavbarComponent {
   }
 
   logOut(){
-    this.cookie.delete('token');
+
+    this.cookie.deleteAll("/");
     this.router.navigateByUrl('/login');
 
   }
