@@ -27,12 +27,10 @@ export class DishListComponent {
           console.log(category.name);
           this.management.getDishByCategory(category.name).subscribe(
             (dishes) => {
-              console.log(JSON.stringify(dishes.content));
               this.dishesByCategory[category.name] = dishes.content
             }
           )
         })
-        console.log(this.dishesByCategory);
       },
       (error) => {
         console.log(error);
