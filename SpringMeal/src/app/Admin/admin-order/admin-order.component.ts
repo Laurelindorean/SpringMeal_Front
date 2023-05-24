@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Order } from 'src/app/Model/Order';
 import { ManagementService } from 'src/app/Service/management.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-admin-order',
@@ -13,6 +14,10 @@ export class AdminOrderComponent implements OnInit {
 
   constructor(private router: Router, private management: ManagementService) {}
   ngOnInit(): void {
+    this.uploadOrders();
+  }
+
+  uploadOrders() {
     this.management.getAllOrders().subscribe(
       (data) => {
         data.forEach((orderJson: any) => {
@@ -29,6 +34,55 @@ export class AdminOrderComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  delete(id: number) {
+    this.management.deleteOrder(id).subscribe(
+      (response) => {
+        this.management.getAllOrders().subscribe((data) => {
+          this.orders = [];
+
+          data.forEach(
+            (element: {
+              id: any;
+              date: string | number | Date;
+              slot: { start: any };
+              user: { name: any };
+            }) => {
+              let orderDTO: Order = {
+                idOrder: element.id,
+                date: new Date(element.date).toLocaleDateString(),
+                slot: element.slot.start,
+                idUser: element.user.name,
+              };
+              this.orders?.push(orderDTO);
+            }
+          );
+        });
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  alertConfirmation(idOrder: number) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'This process is irreversible.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, go ahead.',
+      confirmButtonColor: '#e20074',
+      cancelButtonText: 'No, let me think',
+    }).then((result) => {
+      if (result.value) {
+        this.delete(idOrder);
+        Swal.fire('Removed!', 'Product removed successfully.');
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire('Cancelled', 'Product still in our database.)', 'error');
+      }
+    });
   }
 
   return() {

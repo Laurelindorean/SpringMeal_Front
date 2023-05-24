@@ -1,46 +1,37 @@
-<div
-  class="modal fade"
-  id="staticBackdrop"
-  data-bs-backdrop="static"
-  data-bs-keyboard="false"
-  tabindex="-1"
-  aria-labelledby="staticBackdropLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">
-        <div class="submit-form">
-          <div *ngIf="!isCategoryAdded">
-            <div class="form-group">
-              <label for="name">Category Name</label>
-              <input
-                type="text"
-                class="form-control"
-                id="name"
-                [(ngModel)]="category.name"
-                name="name"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button (click)="addCategory()" class="btn btn-success">Create</button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Close
-        </button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div>
-    </div>
-  </div>
+<div class="container">
+  <mat-toolbar class="bar border-radius-lg">
+    <span>Category creation</span>
+    <span class="example-spacer"></span>
+    <button mat-button routerLink="/welcome">Home</button>
+    <button mat-button routerLink="/admin/category">Back</button>
+  </mat-toolbar>
+
+  <mat-card style="margin-top: 20px">
+    <mat-card-content>
+      <form>
+        <mat-grid-list cols="2" rowHeight="70px">
+          <mat-grid-tile [colspan]="2" [rowspan]="1" [style.background]="'lightblue'" >
+            <mat-form-field>
+              <mat-label color="primary">Input</mat-label>
+              <input matInput>
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
+
+
+        <br>
+        <br>
+        <mat-grid-list cols="4" rowHeight="100px">
+          <mat-grid-tile
+              *ngFor="let tile of tiles"
+              [colspan]="tile.cols"
+              [rowspan]="tile.rows"
+              [style.background]="tile.color">
+            {{tile.text}}
+          </mat-grid-tile>
+        </mat-grid-list>
+      </form>
+    </mat-card-content>
+  </mat-card>
+
 </div>

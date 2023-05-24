@@ -38,25 +38,6 @@ export class AdminCategoryComponent implements OnInit {
     this.router.navigateByUrl('/welcome');
   }
 
-  addCategory():void{
-    const data= {
-      name:this.category.name
-    };
-    if(!data.name){
-      alert('Please add a name');
-      return;
-    }
-    this.management.addCategory(data).subscribe(
-      (response)=>{
-
-        this.isCategoryAdded = true;
-        console.log(data);
-      },
-      (error)=>{
-        console.log(error);
-      }
-    );
-  }
 
   newCategory():void{
     this.isCategoryAdded = false;

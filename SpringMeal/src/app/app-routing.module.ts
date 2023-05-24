@@ -14,6 +14,10 @@ import { AdminOrderComponent } from './Admin/admin-order/admin-order.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AdminDishComponent } from './Admin/admin-dish/admin-dish.component';
+import { CreateCategoryComponent } from './Admin/create-category/create-category.component';
+import { AdminAllergenComponent } from './Admin/admin-allergen/admin-allergen.component';
+import { CreateUserComponent } from './Admin/create-user/create-user.component';
+import { CreateOrderComponent } from './Admin/create-order/create-order.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
@@ -22,13 +26,18 @@ const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
   { path: 'dish', component: DishComponent },
   { path: 'admin/order', component: AdminOrderComponent },
-  { path: 'admin/category', component: AdminCategoryComponent},
-  { path: 'admin/slot', component: AdminSlotComponent},
-  { path: 'admin/user', component: AdminUserComponent},
-  { path: 'order', component: OrderComponent},
+  { path: 'admin/category', component: AdminCategoryComponent },
+  { path: 'admin/slot', component: AdminSlotComponent },
+  { path: 'admin/user', component: AdminUserComponent },
+  { path: 'admin/create-category', component: CreateCategoryComponent },
+  { path: 'order', component: OrderComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'profile', component: ProfileComponent },
-  {path: 'admin/dish', component: AdminDishComponent}
+  { path: 'admin/dish', component: AdminDishComponent },
+  { path: 'admin/create-user', component: CreateUserComponent },
+  { path: 'admin/allergen', component: AdminAllergenComponent },
+  { path: 'admin/create-order', component: CreateOrderComponent },
+  { path: '**', redirectTo: 'login', pathMatch: 'full' },
 ];
 
 @NgModule({

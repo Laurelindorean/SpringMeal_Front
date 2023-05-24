@@ -7,6 +7,9 @@ import { Order } from '../Model/Order';
 import { User } from '../Model/User';
 import { Slot } from '../Model/Slot';
 import { CookieService } from 'ngx-cookie-service';
+import { Allergen } from '../Model/allergen';
+import { DishAllergen } from '../Model/dishAllergen';
+import { OrderDish } from '../Model/OrderDish';
 
 @Injectable({
   providedIn: 'root',
@@ -42,6 +45,7 @@ export class ManagementService {
       this.httpHeaders
     );
   }
+
   deleteCategory(id: number): Observable<any> {
     return this.http.delete(`${this.api}/categories/${id}`, this.httpHeaders);
   }
@@ -152,7 +156,7 @@ export class ManagementService {
     return this.http.delete(`${this.api}/users/${idUser}`, this.httpHeaders);
   }
 
-  // CRUD SLOT
+  // CRUD Slot
 
   getAllSlots(): Observable<any> {
     return this.http.get(`${this.api}/slot`, this.httpHeaders);
@@ -165,4 +169,127 @@ export class ManagementService {
   deleteSlot(idSlot: number): Observable<any> {
     return this.http.delete(`${this.api}/slot/${idSlot}`, this.httpHeaders);
   }
+
+  //CRUD Allergens
+
+  getAllAllergens(): Observable<any> {
+    return this.http.get(`${this.api}/allergens`, this.httpHeaders);
+  }
+
+  addAllergen(allergen: Allergen): Observable<any> {
+    return this.http.post(`${this.api}/allergens`, allergen, this.httpHeaders);
+  }
+
+  updateAllergen(
+    idAllergen: number,
+    updatedAllergen: Allergen
+  ): Observable<any> {
+    return this.http.put(
+      `${this.api}/allergens/${idAllergen}`,
+      updatedAllergen,
+      this.httpHeaders
+    );
+  }
+
+  deleteAllergen(idAllergen: number): Observable<any> {
+    return this.http.delete(
+      `${this.api}/allergens/${idAllergen}`,
+      this.httpHeaders
+    );
+  }
+
+  getAllergenById(idAllergen: number): Observable<any> {
+    return this.http.get(
+      `${this.api}/allergens/${idAllergen}`,
+      this.httpHeaders
+    );
+  }
+
+  getAllergensByName(name: string): Observable<any> {
+    return this.http.get(
+      `${this.api}/allergens/name/${name}`,
+      this.httpHeaders
+    );
+  }
+
+  // CRUD DishAllergens
+
+  getAllDishAllergens(): Observable<any> {
+    return this.http.get(`${this.api}/dishallergens`, this.httpHeaders);
+  }
+
+  addDishAllergen(dishAllergen: DishAllergen): Observable<any> {
+    return this.http.post(
+      `${this.api}/dishallergens`,
+      dishAllergen,
+      this.httpHeaders
+    );
+  }
+
+  updateDishAllergen(
+    idDishAllergen: number,
+    updatedDisAllergen: DishAllergen
+  ): Observable<any> {
+    return this.http.put(
+      `${this.api}/dishallergens/${idDishAllergen}`,
+      updatedDisAllergen,
+      this.httpHeaders
+    );
+  }
+
+  getDishAllergenById(idDishAllergen: number): Observable<any> {
+    return this.http.get(
+      `${this.api}/dishallergens/${idDishAllergen}`,
+      this.httpHeaders
+    );
+  }
+
+  deleteDishAllergen(idDishAllergen: number): Observable<any> {
+    return this.http.delete(
+      `${this.api}/dishallergens/${idDishAllergen}`,
+      this.httpHeaders
+    );
+  }
+
+  //CRUD OrderDish
+
+  getAllOrderDish(): Observable<any> {
+    return this.http.get(`${this.api}/orderdish`, this.httpHeaders);
+  }
+
+  addOrderDish(orderDish: OrderDish): Observable<any> {
+    return this.http.post(`${this.api}/orderdish`, orderDish, this.httpHeaders);
+  }
+
+  getOrderDishById(idOrderDish: number): Observable<any> {
+    return this.http.get(
+      `${this.api}/orderdish/${idOrderDish}`,
+      this.httpHeaders
+    );
+  }
+
+  updateOrderDish(
+    idOrderDish: number,
+    orderDishUpdated: OrderDish
+  ): Observable<any> {
+    return this.http.put(
+      `${this.api}/orderdish/${idOrderDish}`,
+      orderDishUpdated,
+      this.httpHeaders
+    );
+  }
+
+  deleteOrderDish(idOrderDish: number): Observable<any> {
+    return this.http.delete(
+      `${this.api}/orderdish/${idOrderDish}`,
+      this.httpHeaders
+    );
+  }
+
+//I'm not sure of this one. It gives me an error, I don't know hot to solve.
+  /*
+  getOrderDishByOrder(order:Order): Observable<any>{
+    return this.http.get(`${this.api}/orderdish/order`, order, this.httpHeaders);
+  }
+  */
 }

@@ -1,0 +1,9 @@
+<mat-toolbar class="navbar border-radius-lg">
+  <span>Management</span>
+  <span class="example-spacer"></span>
+  <button mat-button *ngFor="let item of menu" [routerLink]="item.redirect">
+    {{ item.name }}
+  </button>
+  <span class="example-spacer"></span>
+  <button mat-button (click)="back()">Home</button>
+</mat-toolbar>

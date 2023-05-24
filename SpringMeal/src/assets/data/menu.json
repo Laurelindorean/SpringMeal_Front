@@ -1,0 +1,22 @@
+[
+  {
+    "name":"User",
+    "redirect": "/admin/user"
+  },
+  {
+    "name":"Order",
+    "redirect": "/admin/order"
+  },
+  {
+    "name":"Dish",
+    "redirect":"/admin/dish"
+  },
+  {
+    "name":"Allergen",
+    "redirect":"/admin/allergen"
+  },
+  {
+    "name":"Category",
+    "redirect":"/admin/category"
+  }
+]
