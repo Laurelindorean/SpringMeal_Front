@@ -1,48 +1,24 @@
-<p>dish-list works!</p>
-<div class="row">
-    <div class="col-12">
-        <div class="card my-4">
-            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                <div
-                    class="navbar navbar-expand-lg bg-body-tertiary bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                    <div class="container-fluid">
-                        <a class="navbar-brand">
-                            <h6 class="text-white text-capitalize ps-3">
-                                Dishes Management
-                            </h6>
-                        </a>
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle text-white text-capitalize ps-3" href="#"
-                                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Options
+<div class="card my-4">
+    <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+        <div class="card-body px-0 pb-2">
+            <div class="table-responsive p-0">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item" *ngFor="let category of categories">
+                                    <a class="nav-link" [class.active]="currentCategory === category" (click)="changeCategory(category)">
+                                        {{ utils.capitalizeFirst(category) }}
                                     </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="/admin/order">Order Management</a></li>
-                                        <li><a class="dropdown-item" href="/admin/dish">Dish Management</a></li>
-                                        <li><a class="dropdown-item" href="/admin/category">Category Management</a></li>
-                                    </ul>
                                 </li>
                             </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body px-0 pb-2">
-                    <div class="table-responsive p-0">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <app-dish *ngFor="let dish of dishes" [dish]="dish"></app-dish>
-                                </div>
+                            <div *ngFor="let dish of dishesByCategory[currentCategory]">
+                                <app-dish [dish]="dish" [actions]="actions"></app-dish>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="align-middle text-center">
-        <button class="btn bg-gradient-primary" (click)="return()">Return</button>
     </div>
 </div>

@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { ManagementService } from 'src/app/Service/management.service';
+import { UtilsService } from '../Service/utils.service';
 
 @Component({
   selector: 'app-dish-list',
@@ -6,23 +9,39 @@ import { Component } from '@angular/core';
   styleUrls: ['./dish-list.component.css']
 })
 export class DishListComponent {
-  dishes: any[] = [
-    {
-      name: 'Plat 1',
-      description: 'Descripció del plat 1',
-      image: '../../../img/sample.dish',
-      price: 10.99
-    },
-    {
-      name: 'Plat 2',
-      description: 'Descripció del plat 2',
-      image: '../../../img/sample.dish',
-      price: 12.99
-    },
-    // Afegir més plats aquí...
-  ];
+  dishesByCategory : { [key: string]: any[] } = {};
+  categories : any[] = [];
+  currentCategory: string = '';
+  @Input() actions: string = 'chart';
 
-  return() {
-    // Funció per tornar enrere
+  constructor(private management: ManagementService, public router: Router, public utils : UtilsService)  {}
+  
+  ngOnInit() : void {
+    this.management.getAllCategories().subscribe(
+      (data) => {
+        data.forEach((category : any) => {
+          if (this.currentCategory === '') {
+            this.currentCategory = category.name
+          }
+          this.categories.push(category.name)
+          console.log(category.name);
+          this.management.getDishByCategory(category.name).subscribe(
+            (dishes) => {
+              console.log(JSON.stringify(dishes.content));
+              this.dishesByCategory[category.name] = dishes.content
+            }
+          )
+        })
+        console.log(this.dishesByCategory);
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
+    
+  }
+
+  changeCategory(category: string): void {
+    this.currentCategory = category;
   }
 }

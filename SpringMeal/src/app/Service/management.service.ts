@@ -65,6 +65,8 @@ export class ManagementService {
   }
 
   getDishByCategory(nameCategory: string): Observable<any> {
+    console.log(`${this.api}/dishes/category/${nameCategory}`);
+    
     return this.http.get(
       `${this.api}/dishes/category/${nameCategory}`,
       this.httpHeaders
