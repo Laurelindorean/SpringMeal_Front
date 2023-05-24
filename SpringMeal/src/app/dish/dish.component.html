@@ -1,9 +1,15 @@
+TODO: cercador <br>
+es pot fer amb:
+    (1) l'endpoint findByName (més fàcil)
+    (2) filtrant des del front
+Si la opció (1) va prou ràpid és lo millor
+
 <div class="card mb-4">
     <div class="row g-0">
         <div class="col-md-3">
             <div class="d-flex align-items-center" style="height: 100%">
                 <div class="w-100 text-center">
-                    <img src="{{ 'data:image/png;base64, '+ dish.image }}" class="img-fluid" alt="{{ dish.name }}">
+                    <img src="data:image/png;base64, {{dish.image}}" class="img-fluid" alt="">
                 </div>
             </div>
         </div>
@@ -11,7 +17,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{ dish.name }}</h5>
                 <p class="card-text">{{ dish.description }}</p>
-                <p class="card-text"><strong>{{ dish.price.toFixed(2) }} €</strong></p>
+                <p class="card-text"><strong> €{{ dish.price.toFixed(2) }}</strong></p>
             </div>
         </div>
         <div class="col-md-3" *ngIf="actions === 'chart'">
@@ -23,6 +29,9 @@
                     </button>
                 </div>
             </div>
+        </div>
+        <div class="col-md-3" *ngIf="actions === 'crud'">
+            TODO: crud
         </div>
     </div>
 </div>

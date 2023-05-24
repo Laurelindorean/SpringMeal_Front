@@ -12,7 +12,7 @@ export class DishListComponent {
   dishesByCategory : { [key: string]: any[] } = {};
   categories : any[] = [];
   currentCategory: string = '';
-  @Input() actions: string = 'chart';
+  @Input() actions!: string;
 
   constructor(private management: ManagementService, public router: Router, public utils : UtilsService)  {}
   
