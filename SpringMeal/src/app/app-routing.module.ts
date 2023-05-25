@@ -18,6 +18,7 @@ import { CreateCategoryComponent } from './Admin/create-category/create-category
 import { AdminAllergenComponent } from './Admin/admin-allergen/admin-allergen.component';
 import { CreateUserComponent } from './Admin/create-user/create-user.component';
 import { CreateOrderComponent } from './Admin/create-order/create-order.component';
+import { CreateAllergenComponent } from './Admin/create-allergen/create-allergen.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
@@ -37,6 +38,7 @@ const routes: Routes = [
   { path: 'admin/create-user', component: CreateUserComponent },
   { path: 'admin/allergen', component: AdminAllergenComponent },
   { path: 'admin/create-order', component: CreateOrderComponent },
+  { path: 'admin/create-allergen', component: CreateAllergenComponent },
   { path: '**', redirectTo: 'login', pathMatch: 'full' },
 ];
 

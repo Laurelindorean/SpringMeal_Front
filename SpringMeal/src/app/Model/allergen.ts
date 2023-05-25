@@ -1,5 +1,5 @@
 export class Allergen {
-  idAllergen!:number;
-  name!:number;
+  idAllergen?:number;
+  name!:string;
 
 }

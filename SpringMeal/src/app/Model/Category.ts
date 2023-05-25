@@ -1,6 +1,6 @@
 export class Category {
 
-  idCategory?:Number;
+  idCategory?:number;
   name!:string;
 }
 

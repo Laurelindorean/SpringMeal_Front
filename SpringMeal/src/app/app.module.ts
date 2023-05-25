@@ -36,7 +36,14 @@ import { CreateUserComponent } from './Admin/create-user/create-user.component';
 import { CreateOrderComponent } from './Admin/create-order/create-order.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MAT_DATE_FORMATS, MatNativeDateModule, NativeDateModule} from '@angular/material/core';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { CreateAllergenComponent } from './Admin/create-allergen/create-allergen.component';
+
+
+
+
 
 
 
@@ -62,7 +69,8 @@ import {MAT_DATE_FORMATS, MatNativeDateModule, NativeDateModule} from '@angular/
     AdminAllergenComponent,
     NavbarAdminComponent,
     CreateUserComponent,
-    CreateOrderComponent
+    CreateOrderComponent,
+    CreateAllergenComponent,
 
   ],
   imports: [
@@ -82,26 +90,11 @@ import {MAT_DATE_FORMATS, MatNativeDateModule, NativeDateModule} from '@angular/
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    NativeDateModule
-
+    MatTableModule,
+    MatPaginatorModule
 
   ],
-  providers: [CookieService,  [
-    {
-      provide: MAT_DATE_FORMATS,
-      useValue: {
-        parse: {
-          dateInput: ['l', 'LL'],
-        },
-        display: {
-          dateInput: 'L',
-          monthYearLabel: 'MMM YYYY',
-          dateA11yLabel: 'LL',
-          monthYearA11yLabel: 'MMMM YYYY',
-        },
-      },
-    },
-  ],],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

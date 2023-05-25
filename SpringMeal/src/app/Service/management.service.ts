@@ -15,8 +15,8 @@ import { OrderDish } from '../Model/OrderDish';
   providedIn: 'root',
 })
 export class ManagementService {
-  private api = 'http://localhost:6752/api';
- // private api = 'https://springmealback-production.up.railway.app/api';
+  //private api = 'http://localhost:6752/api';
+ private api = 'https://springmealback-production.up.railway.app/api';
   private token: string;
   private httpHeaders: { headers: HttpHeaders };
 
@@ -60,7 +60,7 @@ export class ManagementService {
   }
 
   addDish(dish: Dish): Observable<any> {
-    return this.http.post(`${this.api}/dishes/`, dish, this.httpHeaders);
+    return this.http.post(`${this.api}/dishes`, dish, this.httpHeaders);
   }
   getDishByName(name: string): Observable<any> {
     return this.http.get(

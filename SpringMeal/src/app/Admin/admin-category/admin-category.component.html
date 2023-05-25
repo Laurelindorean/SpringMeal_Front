@@ -3,8 +3,14 @@
   <mat-toolbar class="bar border-radius-lg">
     Category
     <div class="example-spacer"></div>
-    <button mat-raised-button style="background-color: #e20074; color: white;" routerLink="/admin/create-category">Add</button>
-    </mat-toolbar>
+    <button
+      mat-raised-button
+      style="background-color: #e20074; color: white"
+      routerLink="/admin/create-category"
+    >
+      Add
+    </button>
+  </mat-toolbar>
 </div>
 <div class="card-body px-0 pb-2">
   <div class="table-responsive p-5">
@@ -37,10 +43,20 @@
             }}</span>
           </td>
           <td class="align-middle text-center">
-            <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+            <button
+              mat-icon-button
+              color="primary"
+              aria-label="Example icon button with a home icon"
+            >
               <mat-icon>edit</mat-icon>
             </button>
-            <button mat-icon-button style="color:#e20074" color="primary" aria-label="Example icon button with a home icon">
+            <button
+              mat-icon-button
+              style="color: #e20074"
+              color="primary"
+              aria-label="Example icon button with a home icon"
+              (click)="alertConfirmation(category.idCategory)"
+            >
               <mat-icon>delete</mat-icon>
             </button>
           </td>
@@ -49,4 +65,3 @@
     </table>
   </div>
 </div>
-

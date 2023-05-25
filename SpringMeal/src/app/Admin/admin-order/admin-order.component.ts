@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import { Order } from 'src/app/Model/Order';
 import { ManagementService } from 'src/app/Service/management.service';
@@ -9,10 +10,13 @@ import Swal from 'sweetalert2';
   templateUrl: './admin-order.component.html',
   styleUrls: ['./admin-order.component.css'],
 })
-export class AdminOrderComponent implements OnInit {
+export class AdminOrderComponent implements OnInit{
   orders?: Order[] = [];
 
   constructor(private router: Router, private management: ManagementService) {}
+
+
+
   ngOnInit(): void {
     this.uploadOrders();
   }
@@ -87,6 +91,7 @@ export class AdminOrderComponent implements OnInit {
       }
     });
   }
+
 
   return() {
     this.router.navigateByUrl('/welcome');

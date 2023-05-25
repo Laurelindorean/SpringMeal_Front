@@ -10,16 +10,19 @@ import { Order } from 'src/app/Model/Order';
 import { ManagementService } from 'src/app/Service/management.service';
 import { DatePipe } from '@angular/common';
 import Swal from 'sweetalert2';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-create-order',
   templateUrl: './create-order.component.html',
   styleUrls: ['./create-order.component.css'],
+
 })
 export class CreateOrderComponent implements OnInit {
   form: FormGroup;
   orders?: Order[] = [];
   slots: any[] = [];
+
 
   constructor(
     private management: ManagementService,
@@ -32,6 +35,8 @@ export class CreateOrderComponent implements OnInit {
       user: new FormControl(''),
     });
   }
+
+
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -64,32 +69,34 @@ export class CreateOrderComponent implements OnInit {
 
     console.log(this.form.value);
     let request = {
-      date: new DatePipe('en-US').transform(this.form.value.date, 'YYYY-MM-dd'),
+      date:  new DatePipe('en-US').transform(this.form.value.date, 'YYYY-MM-dd') ,
       slot: {
-        id: this.form.value.slot.id,
+        id: this.form.value.slot.id
       },
       user: {
-        id: Number(this.form.value.user),
-      },
-    };
+        id:  Number(this.form.value.user)
+      }
+    }
     console.log(request);
-    this.management.addOrder(request).subscribe((data) => {
-      Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Order created',
-        showConfirmButton: false,
-        timer: 1500,
-      });
-      this.cleanRegisterForm();
-    });
+    this.management.addOrder(request).subscribe(
+      (data) => {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Order created',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        this.cleanRegisterForm();
+      }
+    );
   }
 
   return() {
     this.router.navigateByUrl('/admin/order');
   }
 
-  cleanRegisterForm() {
+  cleanRegisterForm(){
     this.form = new FormGroup({
       date: new FormControl(''),
       slot: new FormControl(''),
