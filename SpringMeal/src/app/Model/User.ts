@@ -6,5 +6,7 @@ export class User {
   surname!:string;
   dni!:string;
   email!:string;
-
+  role?:{
+    id: number;
+  }
 }

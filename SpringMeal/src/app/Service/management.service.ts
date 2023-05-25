@@ -15,7 +15,8 @@ import { OrderDish } from '../Model/OrderDish';
   providedIn: 'root',
 })
 export class ManagementService {
-  private api = 'https://springmealback-production.up.railway.app/api';
+  private api = 'http://localhost:6752/api';
+ // private api = 'https://springmealback-production.up.railway.app/api';
   private token: string;
   private httpHeaders: { headers: HttpHeaders };
 
@@ -103,8 +104,8 @@ export class ManagementService {
     return this.http.get(`${this.api}/orders/${idOrder}`, this.httpHeaders);
   }
 
-  addOrder(order: Order): Observable<any> {
-    return this.http.post(`${this.api}/orders/`, order, this.httpHeaders);
+  addOrder(order: any): Observable<any> {
+    return this.http.post(`${this.api}/orders`, order, this.httpHeaders);
   }
 
   updateOrder(idOrder: number, updatedOrder: Order): Observable<any> {
@@ -123,6 +124,11 @@ export class ManagementService {
 
   getAllUsers(): Observable<any> {
     return this.http.get(`${this.api}/users`, this.httpHeaders);
+  }
+
+  addUser(user:User): Observable<any>{
+    console.log(user);
+    return this.http.post(`${this.api}/users`, user, this.httpHeaders);
   }
 
   //This endpoint is just for the users

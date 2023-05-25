@@ -24,7 +24,7 @@ export class AdminOrderComponent implements OnInit {
           let orderDTO: Order = {
             idOrder: orderJson.id,
             date: new Date(orderJson.date).toLocaleDateString(),
-            slot: orderJson.slot.start,
+            slot: `${orderJson.slot.start} - ${orderJson.slot.end}`,
             idUser: orderJson.user.name,
           };
           this.orders?.push(orderDTO);
@@ -46,13 +46,13 @@ export class AdminOrderComponent implements OnInit {
             (element: {
               id: any;
               date: string | number | Date;
-              slot: { start: any };
+              slot: { start: any, end: any };
               user: { name: any };
             }) => {
               let orderDTO: Order = {
                 idOrder: element.id,
                 date: new Date(element.date).toLocaleDateString(),
-                slot: element.slot.start,
+                slot: `${element.slot.start} - ${element.slot.end}`,
                 idUser: element.user.name,
               };
               this.orders?.push(orderDTO);
@@ -66,7 +66,7 @@ export class AdminOrderComponent implements OnInit {
     );
   }
 
-  alertConfirmation(idOrder: number) {
+  alertConfirmation(idOrder?: number) {
     Swal.fire({
       title: 'Are you sure?',
       text: 'This process is irreversible.',
@@ -77,6 +77,9 @@ export class AdminOrderComponent implements OnInit {
       cancelButtonText: 'No, let me think',
     }).then((result) => {
       if (result.value) {
+        if(idOrder==null || idOrder==undefined){
+          throw "error";
+        }
         this.delete(idOrder);
         Swal.fire('Removed!', 'Product removed successfully.');
       } else if (result.dismiss === Swal.DismissReason.cancel) {

@@ -1,9 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { tap, catchError } from 'rxjs/operators';
-import { NgForm } from '@angular/forms';
-
+import { Component} from '@angular/core';
 import { Router } from '@angular/router';
 import { UserServiceService } from 'src/app/Service/user-service.service';
 

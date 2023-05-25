@@ -7,8 +7,8 @@ import { Observable } from 'rxjs/internal/Observable';
   providedIn: 'root',
 })
 export class UserServiceService {
-
-  private api = 'https://springmealback-production.up.railway.app/api';
+  private api = 'http://localhost:6752/api';
+  //private api = 'https://springmealback-production.up.railway.app/api';
   private token: string;
   private httpHeaders: { headers: HttpHeaders };
 
@@ -22,10 +22,12 @@ export class UserServiceService {
   }
 
   login(user: any): Observable<any> {
-    return this.http.post('https://springmealback-production.up.railway.app/api/auth/signin', user);
+    return this.http.post('http://localhost:6752/api/auth/signin', user);
+    //return this.http.post('https://springmealback-production.up.railway.app/api/auth/signin', user);
   }
   register(user:any):Observable<any>{
-    return this.http.post('https://springmealback-production.up.railway.app/api/auth/signup', user, {responseType: 'text'});
+    return this.http.post('http://localhost:6752/api/auth/signup', user, {responseType: 'text'});
+    //return this.http.post('https://springmealback-production.up.railway.app/api/auth/signup', user, {responseType: 'text'});
   }
   get(id:string): Observable<any> {
     console.log(`${this.api}/users/${id}`);
@@ -33,7 +35,8 @@ export class UserServiceService {
     return this.http.get(`${this.api}/users/${id}`, this.httpHeaders);
   }
   update(id:string, user:any): Observable<any> {
-    return this.http.put('https://springmealback-production.up.railway.app/api/users/'+id, user, {headers : this.getHeaders()});
+    return this.http.put(`http://localhost:6752/api/users/${id}`, user, {headers : this.getHeaders()});
+    //return this.http.put(`https://springmealback-production.up.railway.app/api/users/${id}`, user, {headers : this.getHeaders()});
   }
 
   setUserID(id:string) {

@@ -1,9 +1,9 @@
 import { Time } from "@angular/common";
 
 export class Order {
-  idOrder!:number;
+  idOrder?:number;
   date!:string;
-  slot!:Time;
+  slot!:string;
   idUser!:number;
 
 }

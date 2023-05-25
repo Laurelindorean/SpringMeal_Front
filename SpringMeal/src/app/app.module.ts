@@ -34,6 +34,9 @@ import { NavbarAdminComponent } from './Admin/navbar-admin/navbar-admin.componen
 import { MatIconModule } from '@angular/material/icon';
 import { CreateUserComponent } from './Admin/create-user/create-user.component';
 import { CreateOrderComponent } from './Admin/create-order/create-order.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MAT_DATE_FORMATS, MatNativeDateModule, NativeDateModule} from '@angular/material/core';
 
 
 
@@ -75,11 +78,30 @@ import { CreateOrderComponent } from './Admin/create-order/create-order.componen
     MatGridListModule,
     MatInputModule,
     MatFormFieldModule,
-    MatIconModule
+    MatIconModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    NativeDateModule
 
 
   ],
-  providers: [CookieService],
+  providers: [CookieService,  [
+    {
+      provide: MAT_DATE_FORMATS,
+      useValue: {
+        parse: {
+          dateInput: ['l', 'LL'],
+        },
+        display: {
+          dateInput: 'L',
+          monthYearLabel: 'MMM YYYY',
+          dateA11yLabel: 'LL',
+          monthYearA11yLabel: 'MMMM YYYY',
+        },
+      },
+    },
+  ],],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

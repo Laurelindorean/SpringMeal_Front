@@ -1,0 +1,18 @@
+.form-control{
+  background-color: white;
+  margin-top: 15px;
+  height: 35px;
+  color: black;
+  padding-left: 5px;
+  }
+  .custom{
+    background-color: #e20074;
+  }
+
+  .button_search{
+    margin-left: 10px;
+  }
+
+  .button-delete{
+    margin-left: 10px;
+  }
