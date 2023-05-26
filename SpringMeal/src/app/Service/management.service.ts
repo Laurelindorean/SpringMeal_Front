@@ -105,9 +105,13 @@ export class ManagementService {
   getOrderById(idOrder: number): Observable<any> {
     return this.http.get(`${this.api}/orders/${idOrder}`, this.httpHeaders);
   }
-
+  //This endpoint create order just for the user who is creating it.
   addOrder(order: any): Observable<any> {
     return this.http.post(`${this.api}/orders`, order, this.httpHeaders);
+  }
+  //this endpoint will only by used by admin to create orders for any user
+  addOrderByAdmin(order:any): Observable<any>{
+    return this.http.post(`${this.api}/orders/admin`, order, this.httpHeaders);
   }
 
   updateOrder(idOrder: number, updatedOrder: Order): Observable<any> {
