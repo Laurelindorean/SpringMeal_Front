@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contact',
@@ -11,6 +12,15 @@ export class ContactComponent {
 
   return() {
     this.router.navigateByUrl('/welcome');
+  }
+  send(){
+        Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Thank you! we will contact you as soon as possible',
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 
 }
