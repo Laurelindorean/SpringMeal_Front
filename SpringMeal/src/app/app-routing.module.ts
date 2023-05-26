@@ -20,6 +20,7 @@ import { CreateUserComponent } from './Admin/create-user/create-user.component';
 import { CreateOrderComponent } from './Admin/create-order/create-order.component';
 import { CreateAllergenComponent } from './Admin/create-allergen/create-allergen.component';
 import { DishListComponent } from './dish-list/dish-list.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
@@ -40,8 +41,10 @@ const routes: Routes = [
   { path: 'admin/allergen', component: AdminAllergenComponent },
   { path: 'admin/create-order', component: CreateOrderComponent },
   { path: 'admin/create-allergen', component: CreateAllergenComponent },
-  { path: '**', redirectTo: 'login', pathMatch: 'full' },
   { path: 'dish-list', component: DishListComponent },
+  { path: 'about-us', component: AboutUsComponent },
+  { path: '**', redirectTo: 'login', pathMatch: 'full' },
+
 ];
 
 @NgModule({

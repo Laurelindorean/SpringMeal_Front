@@ -7,11 +7,12 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @Component({
-  selector: 'app-edit-user',
-  templateUrl: './edit-user.component.html',
-  styleUrls: ['./edit-user.component.css'],
+  selector: 'app-allergen-edit-dialog',
+  templateUrl: '../Allergen-edit-dialog/allergen-edit-dialog.html',
+  styleUrls: ['../Allergen-edit-dialog/allergen-edit-dialog.css'],
   standalone: true,
   imports: [
     MatDialogModule,
@@ -22,8 +23,10 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatInputModule,
     MatCardModule,
     MatGridListModule,
+    MatDatepickerModule
   ],
 })
-export class EditUserComponent {
-  constructor(public dialogRef: MatDialogRef<EditUserComponent>) {}
+
+export class AllergenEditDialog{
+  constructor(public dialogRef: MatDialogRef<AllergenEditDialog>) {}
 }

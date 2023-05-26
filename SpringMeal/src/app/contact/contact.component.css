@@ -1,5 +1,9 @@
-iframe{
+.body-contact {
+  background-color: grey;
+  height: auto;
+}
 
+iframe{
   width: 400px;
   height: 400px;
   margin-left: 50px;

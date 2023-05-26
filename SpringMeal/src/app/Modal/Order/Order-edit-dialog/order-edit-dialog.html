@@ -1,0 +1,56 @@
+<div class="modal-container">
+  <!-- Titulo del modal -->
+  <header class="modal-header">
+    <h1 mat-dialog-title>Update Order</h1>
+    <mat-divider></mat-divider>
+  </header>
+
+  <!-- Cuerpo del modal -->
+  <body class="modal-body">
+    <mat-card>
+      <mat-card-content>
+        <form class="example-form">
+          <mat-grid-list cols="4" rowHeight="70px">
+            <mat-grid-tile [colspan]="2" [rowspan]="1">
+              <mat-form-field class="input-size">
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="date">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2" [rowspan]="1">
+              <mat-form-field class="input-size">
+                <mat-label>Slot</mat-label>
+                <mat-select formControlName="slot">
+                  <mat-option *ngFor="let slot of slots" [value]="slot.value">
+                    {{ slot.viewValue }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2" [rowspan]="1">
+              <mat-form-field class="input-size">
+                <mat-label>User</mat-label>
+                <input
+                  matInput
+                  autocomplete="off"
+                  required="required"
+                  formControlName="user"
+                /> </mat-form-field
+            >
+            </mat-grid-tile>
+          </mat-grid-list>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </body>
+  <!-- Footer del modal -->
+  <footer class="modal-footer">
+    <div mat-dialog-actions class="botones-container">
+      <button mat-stroked-button color="accent">Okey</button>
+      <button mat-dialog-close mat-stroked-button color="accent">Exit</button>
+    </div>
+  </footer>
+</div>

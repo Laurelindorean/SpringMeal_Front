@@ -1,4 +1,4 @@
-<body class="bg-gray-200">
+<body class="bg-gray-200" style="height: auto">
   <main class="main-content mt-0">
     <app-navbar></app-navbar>
     <div class="conainer-fluid">
@@ -15,7 +15,6 @@
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
-
 
         <div class="flex-item contact-text">
           <h3 class="text-center">We are at your disposition</h3>
@@ -55,13 +54,15 @@
             </li>
           </ul>
         </div>
-
       </div>
 
-      <div class="container border" style="background-color: white; border-radius: 20px">
+      <div
+        class="container border"
+        style="background-color: white; border-radius: 20px"
+      >
         <form [formGroup]="form" (ngSubmit)="send()">
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label "
+            <label for="exampleFormControlInput1" class="form-label"
               >Email address</label
             >
             <input
@@ -85,11 +86,17 @@
               required="required"
               formControlName="message"
             ></textarea>
-            <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Send</button>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              [disabled]="form.invalid"
+            >
+              Send
+            </button>
           </div>
         </form>
-
       </div>
+      <app-footer></app-footer>
     </div>
   </main>
 </body>

@@ -1,0 +1,41 @@
+.button {
+  margin-right: 8px;
+}
+
+.btn-ok,
+.btn-exit {
+  /* Estilos para los botones */
+  margin: 0 10px;
+}
+
+.modal-container {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "body"
+    "footer";
+  grid-template-rows: auto 1fr auto;
+  height: auto;
+  width: auto;
+  margin-left: 2vh;
+  margin-right: 2vh;
+}
+
+.modal-header {
+  grid-area: header;
+  /* Estilos para el header del modal */
+}
+
+.modal-body {
+  grid-area: body;
+  /* Estilos para el body del modal */
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: right;
+  align-items: flex-end;
+}
+.input-size{
+  width: 95%;
+}
