@@ -24,27 +24,30 @@ import { ProfileComponent } from './profile/profile.component';
 import { DishListComponent } from './dish-list/dish-list.component';
 import { CreateCategoryComponent } from './Admin/create-category/create-category.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { AdminAllergenComponent } from './Admin/admin-allergen/admin-allergen.component';
 import { NavbarAdminComponent } from './Admin/navbar-admin/navbar-admin.component';
 import { MatIconModule } from '@angular/material/icon';
 import { CreateUserComponent } from './Admin/create-user/create-user.component';
 import { CreateOrderComponent } from './Admin/create-order/create-order.component';
-import {MatSelectModule} from '@angular/material/select';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import {MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { CreateAllergenComponent } from './Admin/create-allergen/create-allergen.component';
 import { ButtonModalComponent } from './Modal/button-modal/button-modal.component';
-import {MatDividerModule} from '@angular/material/divider';
-
-
+import { MatDividerModule } from '@angular/material/divider';
+import { MatDialogModule } from '@angular/material/dialog';
+import { AcceptTermsComponent } from './Modal/accept-terms/accept-terms.component';
+import { FooterComponent } from './footer/footer.component';
+import { OrderButtonModal } from "./Modal/Order/Order-button-modal/order-button-modal";
+import { AboutUsComponent } from './about-us/about-us.component';
 
 @NgModule({
     declarations: [
@@ -69,7 +72,9 @@ import {MatDividerModule} from '@angular/material/divider';
         CreateUserComponent,
         CreateOrderComponent,
         CreateAllergenComponent,
-        DishListComponent
+        DishListComponent,
+        FooterComponent,
+        AboutUsComponent,
     ],
     providers: [CookieService],
     bootstrap: [AppComponent],
@@ -94,7 +99,9 @@ import {MatDividerModule} from '@angular/material/divider';
         MatPaginatorModule,
         ButtonModalComponent,
         MatDividerModule,
-
+        MatDialogModule,
+        AcceptTermsComponent,
+        OrderButtonModal
     ]
 })
-export class AppModule { }
+export class AppModule {}

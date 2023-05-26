@@ -7,11 +7,12 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @Component({
-  selector: 'app-edit-user',
-  templateUrl: './edit-user.component.html',
-  styleUrls: ['./edit-user.component.css'],
+  selector: 'app-order-edit-dialot',
+  templateUrl: '../Order-edit-dialog/order-edit-dialog.html',
+  styleUrls: ['../Order-edit-dialog/order-edit-dialog.css'],
   standalone: true,
   imports: [
     MatDialogModule,
@@ -22,8 +23,9 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatInputModule,
     MatCardModule,
     MatGridListModule,
+    MatDatepickerModule
   ],
 })
-export class EditUserComponent {
-  constructor(public dialogRef: MatDialogRef<EditUserComponent>) {}
+export class OrderEditDialog {
+  constructor(public dialogRef: MatDialogRef<OrderEditDialog>) {}
 }

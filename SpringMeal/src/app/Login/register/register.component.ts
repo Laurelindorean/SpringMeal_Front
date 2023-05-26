@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 
 import { Validation } from '../utils/Validation';
 import { UserServiceService } from 'src/app/Service/user-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -124,6 +125,13 @@ export class RegisterComponent implements OnInit {
     console.log(this.formRegister.value);
     this.userService.register(this.formRegister.value).subscribe(
       (data) => {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Your registration is complete, now you can log in',
+          showConfirmButton: false,
+          timer: 1500,
+        });
         this.router.navigate(['/login']);
       },
       (error) => {

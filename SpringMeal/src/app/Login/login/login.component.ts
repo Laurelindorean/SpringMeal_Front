@@ -1,6 +1,7 @@
 import { Component} from '@angular/core';
 import { Router } from '@angular/router';
 import { UserServiceService } from 'src/app/Service/user-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,13 @@ export class LoginComponent {
     const user = { username: this.username, password: this.password };
     this.userService.login(user).subscribe(
       (data) => {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Welcome to SpringMeal',
+          showConfirmButton: false,
+          timer: 1000,
+        });
         this.userService.setToken(data.token);
         this.userService.setRole(data.roleName);
         this.userService.setUserID(data.userid);

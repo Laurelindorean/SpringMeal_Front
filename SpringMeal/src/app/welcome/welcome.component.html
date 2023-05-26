@@ -28,12 +28,26 @@
               "
             >
               <br />
-              Welcome to SpringMeal <br>
-               Hungry... ?
-              <div style="width: 100%;
-              height: 100%; position: absolute; display: flex; align-items: center;
-              justify-content: center;">
-                <button class="button-home" mat-flat-button style="background-color: #e20074; color: white;" routerLink="/order">Make an Order</button>
+              Welcome to SpringMeal <br />
+              Hungry... ?
+              <div
+                style="
+                  width: 100%;
+                  height: 100%;
+                  position: absolute;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <button
+                  class="button-home"
+                  mat-flat-button
+                  style="background-color: #e20074; color: white"
+                  routerLink="/order"
+                >
+                  Make an Order
+                </button>
               </div>
             </div>
 
@@ -78,38 +92,7 @@
             <span class="visually-hidden">Next</span>
           </button>
         </div>
-        <footer class="footer position-relative bottom-1 py-2 w-100">
-          <div class="container">
-            <div class="row align-items-center justify-content-lg-between">
-              <div class="col-12 col-md-6 my-auto">
-                <div class="copyright text-center text-sm text-lg-start">
-                  © , made with
-                  <i class="fa fa-heart" aria-hidden="true"></i> by
-                  <a href="#" class="font-weight-bold" target="_blank"
-                    >SpringMeal</a
-                  >
-                </div>
-              </div>
-              <div class="col-12 col-md-6">
-                <ul
-                  class="nav nav-footer justify-content-center justify-content-lg-end"
-                >
-                  <li class="nav-item">
-                    <a href="#" class="nav-link" target="_blank">SpringMeal</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link" target="_blank">About Us</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link pe-0" target="_blank"
-                      >License</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </footer>
+        <app-footer></app-footer>
       </div>
     </div>
   </main>
