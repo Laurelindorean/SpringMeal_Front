@@ -48,6 +48,9 @@ import { AcceptTermsComponent } from './Modal/accept-terms/accept-terms.componen
 import { FooterComponent } from './footer/footer.component';
 import { OrderButtonModal } from "./Modal/Order/Order-button-modal/order-button-modal";
 import { AboutUsComponent } from './about-us/about-us.component';
+import { AllergenButtonModal } from "./Modal/Allergen/Allergen-button-modal/allergen-button-modal";
+import { CategoryEditDialog } from "./Modal/Category/Category-edit-dialog/category-edit-dialog";
+import { CategoryButtonModal } from "./Modal/Category/Category-button-modal/category-button-modal";
 
 @NgModule({
     declarations: [
@@ -101,7 +104,10 @@ import { AboutUsComponent } from './about-us/about-us.component';
         MatDividerModule,
         MatDialogModule,
         AcceptTermsComponent,
-        OrderButtonModal
+        OrderButtonModal,
+        AllergenButtonModal,
+        CategoryEditDialog,
+        CategoryButtonModal
     ]
 })
 export class AppModule {}

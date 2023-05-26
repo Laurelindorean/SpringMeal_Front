@@ -10,9 +10,9 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @Component({
-  selector: 'app-order-edit-dialog',
-  templateUrl: '../Order-edit-dialog/order-edit-dialog.html',
-  styleUrls: ['../Order-edit-dialog/order-edit-dialog.css'],
+  selector: 'app-allergen-edit-dialog',
+  templateUrl: '../Allergen-edit-dialog/allergen-edit-dialog.html',
+  styleUrls: ['../Allergen-edit-dialog/allergen-edit-dialog.css'],
   standalone: true,
   imports: [
     MatDialogModule,
@@ -26,6 +26,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatDatepickerModule
   ],
 })
-export class OrderEditDialog {
-  constructor(public dialogRef: MatDialogRef<OrderEditDialog>) {}
+
+export class AllergenEditDialog{
+  constructor(public dialogRef: MatDialogRef<AllergenEditDialog>) {}
 }
