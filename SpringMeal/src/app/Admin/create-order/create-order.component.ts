@@ -67,7 +67,6 @@ export class CreateOrderComponent implements OnInit {
       this.return;
     }
 
-    console.log(this.form.value);
     let request = {
       date:  new DatePipe('en-US').transform(this.form.value.date, 'YYYY-MM-dd') ,
       slot: {
@@ -77,7 +76,7 @@ export class CreateOrderComponent implements OnInit {
         id:  Number(this.form.value.user)
       }
     }
-    console.log(request);
+
     this.management.addOrder(request).subscribe(
       (data) => {
         Swal.fire({

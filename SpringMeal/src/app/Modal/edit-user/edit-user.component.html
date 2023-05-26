@@ -1,0 +1,67 @@
+<div class="modal-container">
+  <!-- Titulo del modal -->
+  <header class="modal-header">
+    <h1 mat-dialog-title>Update User</h1>
+    <mat-divider></mat-divider>
+  </header>
+
+  <!-- Cuerpo del modal -->
+  <body class="modal-body">
+    <mat-card>
+      <mat-card-content>
+        <form class="example-form">
+          <mat-grid-list cols="2" rowHeight="70px">
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-form-field class="input-size">
+                <mat-label>Username</mat-label>
+                <input matInput />
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-form-field class="input-size">
+                <mat-label>Name</mat-label>
+                <input matInput />
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-form-field class="input-size">
+                <mat-label>Surname</mat-label>
+                <input matInput />
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-form-field class="input-size">
+                <mat-label>DNI</mat-label>
+                <input matInput />
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-form-field class="input-size">
+                <mat-label>Email</mat-label>
+                <input matInput />
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-form-field class="input-size">
+                <mat-label>Role</mat-label>
+                <mat-select formControlName="role" >
+                  <mat-option *ngFor="let role of roles" [value]="role.value">
+                    {{role.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </body>
+
+  <!-- Footer del modal -->
+  <footer class="modal-footer">
+    <div mat-dialog-actions class="botones-container">
+      <button mat-stroked-button color="accent">Okey</button>
+      <button mat-dialog-close mat-stroked-button color="accent">Exit</button>
+    </div>
+  </footer>
+</div>

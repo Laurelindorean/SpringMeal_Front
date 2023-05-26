@@ -40,61 +40,59 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { CreateAllergenComponent } from './Admin/create-allergen/create-allergen.component';
-
-
-
-
-
+import { ButtonModalComponent } from './Modal/button-modal/button-modal.component';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    RegisterComponent,
-    WelcomeComponent,
-    NavbarComponent,
-    CategoryComponent,
-    DishComponent,
-    OrderComponent,
-    AdminDishComponent,
-    AdminOrderComponent,
-    AdminUserComponent,
-    AdminSlotComponent,
-    AdminCategoryComponent,
-    ContactComponent,
-    ProfileComponent,
-    CreateCategoryComponent,
-    AdminAllergenComponent,
-    NavbarAdminComponent,
-    CreateUserComponent,
-    CreateOrderComponent,
-    CreateAllergenComponent,
+    declarations: [
+        AppComponent,
+        LoginComponent,
+        RegisterComponent,
+        WelcomeComponent,
+        NavbarComponent,
+        CategoryComponent,
+        DishComponent,
+        OrderComponent,
+        AdminDishComponent,
+        AdminOrderComponent,
+        AdminUserComponent,
+        AdminSlotComponent,
+        AdminCategoryComponent,
+        ContactComponent,
+        ProfileComponent,
+        CreateCategoryComponent,
+        AdminAllergenComponent,
+        NavbarAdminComponent,
+        CreateUserComponent,
+        CreateOrderComponent,
+        CreateAllergenComponent
+    ],
+    providers: [CookieService],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatCardModule,
+        MatGridListModule,
+        MatInputModule,
+        MatFormFieldModule,
+        MatIconModule,
+        MatSelectModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatTableModule,
+        MatPaginatorModule,
+        ButtonModalComponent,
+        MatDividerModule,
 
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatCardModule,
-    MatGridListModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatSelectModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatTableModule,
-    MatPaginatorModule
-
-  ],
-  providers: [CookieService],
-  bootstrap: [AppComponent]
+    ]
 })
 export class AppModule { }

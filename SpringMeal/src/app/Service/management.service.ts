@@ -292,10 +292,10 @@ export class ManagementService {
     );
   }
 
-//I'm not sure of this one. It gives me an error, I don't know hot to solve.
-  /*
-  getOrderDishByOrder(order:Order): Observable<any>{
-    return this.http.get(`${this.api}/orderdish/order`, order, this.httpHeaders);
+
+
+  getOrderDishByOrder(idOrder:number): Observable<any>{
+    return this.http.get(`${this.api}/orderdish/order/${idOrder}`, this.httpHeaders);
   }
-  */
+
 }

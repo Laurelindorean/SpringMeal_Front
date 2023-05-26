@@ -1,55 +1,82 @@
-<app-navbar></app-navbar>
-<!-- user-data.component.html -->
-<div class="container">
-    <div class="card">
-      <div class="card-header">
-        <h4 class="font-weight-bolder">User Data</h4>
-      </div>
-      <div class="card-body">
-        <div class="form-group">
-          <label>Name:</label>
-          <input [(ngModel)]="user.name" class="form-control" re [disabled]="!editing" />
+<body class="bg-gray-200">
+  <main class="main-content mt-0">
+    <app-navbar></app-navbar>
+    <!-- user-data.component.html -->
+    <div class="container">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="font-weight-bolder">User Data</h4>
         </div>
-        <div class="form-group">
-          <label>Surname:</label>
-          <input [(ngModel)]="user.surname" class="form-control" [disabled]="!editing" />
+        <div class="card-body">
+          <div class="form-group">
+            <label>Name:</label>
+            <input
+              [(ngModel)]="user.name"
+              class="form-control"
+              re
+              [disabled]="!editing"
+            />
+          </div>
+          <div class="form-group">
+            <label>Surname:</label>
+            <input
+              [(ngModel)]="user.surname"
+              class="form-control"
+              [disabled]="!editing"
+            />
+          </div>
+          <div class="form-group">
+            <label>Username:</label>
+            <input
+              [(ngModel)]="user.username"
+              class="form-control"
+              [disabled]="!editing"
+            />
+          </div>
+          <div class="form-group">
+            <label>DNI:</label>
+            <input
+              [(ngModel)]="user.dni"
+              class="form-control"
+              [disabled]="!editing"
+            />
+          </div>
+          <div class="form-group">
+            <label>Email:</label>
+            <input
+              [(ngModel)]="user.email"
+              class="form-control"
+              [disabled]="!editing"
+            />
+          </div>
         </div>
-        <div class="form-group">
-          <label>Username:</label>
-          <input [(ngModel)]="user.username" class="form-control" [disabled]="!editing" />
+        <div class="card-footer">
+          <div class="text-center">
+            <button class="btn custom" (click)="toggleEditing()">
+              {{ editing ? "Save" : "Edit" }}
+            </button>
+            &nbsp;
+            <button class="btn custom" (click)="return()">Back</button>
+          </div>
         </div>
-        <div class="form-group">
-          <label>DNI:</label>
-          <input [(ngModel)]="user.dni" class="form-control" [disabled]="!editing" />
-        </div>
-        <div class="form-group">
-          <label>Email:</label>
-          <input [(ngModel)]="user.email" class="form-control" [disabled]="!editing" />
-        </div>
-      </div>
-      <div class="card-footer">
-        <div class="text-center">
-          <button class="btn custom" (click)="toggleEditing()">
-            {{ editing ? 'Save' : 'Edit' }}
-          </button>
-          &nbsp;
-          <button class="btn custom" (click)="return()">
-            Back
-          </button>
-        </div>
+
       </div>
       <footer class="footer position-relative bottom-1 py-2 w-100">
         <div class="container">
           <div class="row align-items-center justify-content-lg-between">
             <div class="col-12 col-md-6 my-auto">
               <div class="copyright text-center text-sm text-lg-start">
-                © ,
-                made with <i class="fa fa-heart" aria-hidden="true"></i> by
-                <a href="#" class="font-weight-bold" target="_blank">SpringMeal</a>
+                © , made with
+                <i class="fa fa-heart" aria-hidden="true"></i> by
+                <a href="#" class="font-weight-bold" target="_blank"
+                  >SpringMeal</a
+                >
               </div>
             </div>
             <div class="col-12 col-md-6">
-              <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+              <ul
+                class="nav nav-footer justify-content-center justify-content-lg-end"
+              >
                 <li class="nav-item">
                   <a href="#" class="nav-link" target="_blank">SpringMeal</a>
                 </li>
@@ -57,7 +84,9 @@
                   <a href="#" class="nav-link" target="_blank">About Us</a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link pe-0" target="_blank">License</a>
+                  <a href="#" class="nav-link pe-0" target="_blank"
+                    >License</a
+                  >
                 </li>
               </ul>
             </div>
@@ -65,4 +94,5 @@
         </div>
       </footer>
     </div>
-  </div>
+  </main>
+</body>

@@ -7,8 +7,8 @@ import { Observable } from 'rxjs/internal/Observable';
   providedIn: 'root',
 })
 export class UserServiceService {
-  private api = 'http://localhost:6752/api';
-  //private api = 'https://springmealback-production.up.railway.app/api';
+  //private api = 'http://localhost:6752/api';
+  private api = 'https://springmealback-production.up.railway.app/api';
   private token: string;
   private httpHeaders: { headers: HttpHeaders };
 
