@@ -21,6 +21,7 @@ import { AdminSlotComponent } from './Admin/admin-slot/admin-slot.component';
 import { AdminCategoryComponent } from './Admin/admin-category/admin-category.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProfileComponent } from './profile/profile.component';
+import { DishListComponent } from './dish-list/dish-list.component';
 import { CreateCategoryComponent } from './Admin/create-category/create-category.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -67,7 +68,8 @@ import {MatDividerModule} from '@angular/material/divider';
         NavbarAdminComponent,
         CreateUserComponent,
         CreateOrderComponent,
-        CreateAllergenComponent
+        CreateAllergenComponent,
+        DishListComponent
     ],
     providers: [CookieService],
     bootstrap: [AppComponent],
