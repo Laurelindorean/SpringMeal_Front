@@ -1,8 +1,4 @@
-TODO: cercador <br>
-es pot fer amb:
-    (1) l'endpoint findByName (més fàcil)
-    (2) filtrant des del front
-Si la opció (1) va prou ràpid és lo millor
+
 
 <div class="card mb-4">
     <div class="row g-0">
@@ -15,8 +11,8 @@ Si la opció (1) va prou ràpid és lo millor
         </div>
         <div class="col-md-6">
             <div class="card-body">
-                <h5 class="card-title">{{ dish.name }}</h5>
-                <p class="card-text">{{ dish.description }}</p>
+                <h5 class="card-title">{{ utils.capitalizeFirst(dish.name) }}</h5>
+                <p class="card-text">{{ utils.capitalizeFirst(dish.description) }}</p>
                 <p class="card-text"><strong> €{{ dish.price.toFixed(2) }}</strong></p>
             </div>
         </div>
