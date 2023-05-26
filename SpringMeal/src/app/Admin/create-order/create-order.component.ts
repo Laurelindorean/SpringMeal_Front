@@ -17,6 +17,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
   templateUrl: './create-order.component.html',
   styleUrls: ['./create-order.component.css'],
 
+
 })
 export class CreateOrderComponent implements OnInit {
   form: FormGroup;
@@ -78,7 +79,7 @@ export class CreateOrderComponent implements OnInit {
       }
     }
     console.log(request);
-    this.management.addOrder(request).subscribe(
+    this.management.addOrderByAdmin(request).subscribe(
       (data) => {
         Swal.fire({
           position: 'center',
