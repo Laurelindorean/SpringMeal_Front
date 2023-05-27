@@ -31,7 +31,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let allergen of allergens">
+        <tr
+          *ngFor="
+            let allergen of allergens
+              | paginate : { itemsPerPage: 10, currentPage: p }
+          "
+        >
           <td class="align-middle text-center">
             <span class="badge badge-sm bg-gradient-success"
               >{{ allergen.idAllergen }}
@@ -43,7 +48,9 @@
             }}</span>
           </td>
           <td class="align-middle text-center">
-            <app-allergen-button-modal></app-allergen-button-modal>
+            <app-allergen-button-modal
+              [allergen]="allergen" (allergenUpdated)="updateAllergenUpdated($event)"
+            ></app-allergen-button-modal>
             <button
               mat-icon-button
               style="color: #e20074"
@@ -57,5 +64,11 @@
         </tr>
       </tbody>
     </table>
+    <pagination-controls
+      (pageChange)="p = $event"
+      previousLabel="Previous"
+      nextLabel="Next"
+      [responsive]="true"
+    ></pagination-controls>
   </div>
 </div>

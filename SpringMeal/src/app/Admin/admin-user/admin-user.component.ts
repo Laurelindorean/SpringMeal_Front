@@ -10,7 +10,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./admin-user.component.css'],
 })
 export class AdminUserComponent implements OnInit {
-  users?: User[] = [];
+  users: User[] = [];
+  public p?: number;
 
   constructor(private management: ManagementService, private router: Router) {}
 
@@ -26,6 +27,10 @@ export class AdminUserComponent implements OnInit {
             surname: userJson.surname,
             dni: userJson.dni,
             email: userJson.email,
+            role: {
+              id: userJson.role.id,
+              name: userJson.role.name,
+            },
           };
 
           this.users?.push(userDTO);
@@ -91,5 +96,19 @@ export class AdminUserComponent implements OnInit {
 
   return() {
     this.router.navigateByUrl('/welcome');
+  }
+  updateUserUpdated(idUser: number) {
+    if (idUser > 0) {
+      let userFound: User = this.users.filter(
+        (user) => user.idUser == idUser
+      )[0];
+      this.management.getUserByIdAdmin(idUser).subscribe((response) => {
+        userFound.username = response.username;
+        userFound.name = response.name;
+        userFound.surname = response.surname;
+        userFound.dni = response.dni;
+        userFound.email = response.email;
+      });
+    }
   }
 }

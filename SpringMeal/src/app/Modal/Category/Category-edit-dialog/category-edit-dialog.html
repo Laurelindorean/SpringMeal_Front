@@ -9,7 +9,7 @@
   <body class="modal-body">
     <mat-card>
       <mat-card-content>
-        <form class="example-form">
+        <form [formGroup]="form">
           <mat-grid-list cols="4" rowHeight="70px">
             <mat-grid-tile [colspan]="4" [rowspan]="1"
             ><mat-form-field class="input-size">
@@ -29,7 +29,7 @@
   <!-- Footer del modal -->
   <footer class="modal-footer">
     <div mat-dialog-actions class="botones-container">
-      <button mat-stroked-button color="accent">Save</button>
+      <button mat-stroked-button color="accent" (click)="updateCategory()" >Save</button>
       <button mat-dialog-close mat-stroked-button color="accent">Back</button>
     </div>
   </footer>

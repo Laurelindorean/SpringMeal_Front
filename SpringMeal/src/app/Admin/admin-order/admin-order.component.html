@@ -42,7 +42,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let order of orders">
+        <tr
+          *ngFor="
+            let order of orders | paginate: { itemsPerPage: 10, currentPage: p }"
+
+        >
           <td class="align-middle text-center">
             <span class="badge badge-sm bg-gradient-success"
               >{{ order.idOrder }}
@@ -58,11 +62,11 @@
           </td>
           <td class="align-middle text-center">
             <span class="text-secondary text-xs font-weight-bold">{{
-              order.idUser
+              order.nameUser
             }}</span>
           </td>
           <td class="align-middle text-center">
-            <app-order-button-modal></app-order-button-modal>
+            <app-order-button-modal [order]="order" (orderUpdated)="updateOrderUpdated($event)"></app-order-button-modal>
             <button
               mat-icon-button
               style="color: #e20074"
@@ -76,5 +80,12 @@
         </tr>
       </tbody>
     </table>
+
+    <pagination-controls
+      (pageChange)="p = $event"
+      previousLabel="Previous"
+      nextLabel="Next"
+      [responsive]="true"
+    ></pagination-controls>
   </div>
 </div>

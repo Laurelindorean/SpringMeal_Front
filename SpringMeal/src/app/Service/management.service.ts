@@ -16,7 +16,7 @@ import { OrderDish } from '../Model/OrderDish';
 })
 export class ManagementService {
   //private api = 'http://localhost:6752/api';
- private api = 'https://springmealback-production.up.railway.app/api';
+  private api = 'https://springmealback-production.up.railway.app/api';
   private token: string;
   private httpHeaders: { headers: HttpHeaders };
 
@@ -27,6 +27,10 @@ export class ManagementService {
         Authorization: `Bearer ${this.token}`,
       }),
     };
+  }
+  //CRUD ROLES
+  getAllRoles(): Observable<any> {
+    return this.http.get(`${this.api}/roles`, this.httpHeaders);
   }
 
   //CRUD Categories
@@ -71,7 +75,7 @@ export class ManagementService {
 
   getDishByCategory(nameCategory: string): Observable<any> {
     console.log(`${this.api}/dishes/category/${nameCategory}`);
-    
+
     return this.http.get(
       `${this.api}/dishes/category/${nameCategory}`,
       this.httpHeaders
@@ -110,11 +114,11 @@ export class ManagementService {
     return this.http.post(`${this.api}/orders`, order, this.httpHeaders);
   }
   //this endpoint will only by used by admin to create orders for any user
-  addOrderByAdmin(order:any): Observable<any>{
+  addOrderByAdmin(order: any): Observable<any> {
     return this.http.post(`${this.api}/orders/admin`, order, this.httpHeaders);
   }
 
-  updateOrder(idOrder: number, updatedOrder: Order): Observable<any> {
+  updateOrder(idOrder: number, updatedOrder: any): Observable<any> {
     return this.http.put(
       `${this.api}/orders/${idOrder}`,
       updatedOrder,
@@ -132,7 +136,7 @@ export class ManagementService {
     return this.http.get(`${this.api}/users`, this.httpHeaders);
   }
 
-  addUser(user:User): Observable<any>{
+  addUser(user: User): Observable<any> {
     console.log(user);
     return this.http.post(`${this.api}/users`, user, this.httpHeaders);
   }
@@ -298,10 +302,10 @@ export class ManagementService {
     );
   }
 
-
-
-  getOrderDishByOrder(idOrder:number): Observable<any>{
-    return this.http.get(`${this.api}/orderdish/order/${idOrder}`, this.httpHeaders);
+  getOrderDishByOrder(idOrder: number): Observable<any> {
+    return this.http.get(
+      `${this.api}/orderdish/order/${idOrder}`,
+      this.httpHeaders
+    );
   }
-
 }

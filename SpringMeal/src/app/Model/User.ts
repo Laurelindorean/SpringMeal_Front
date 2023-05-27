@@ -8,5 +8,6 @@ export class User {
   email!:string;
   role?:{
     id: number;
+    name: string;
   }
 }

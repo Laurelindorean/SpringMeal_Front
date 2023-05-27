@@ -10,7 +10,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./admin-allergen.component.css'],
 })
 export class AdminAllergenComponent implements OnInit {
-  allergens?: Allergen[] = [];
+  allergens: Allergen[] = [];
+  public p?: number;
 
   constructor(private router: Router, private management: ManagementService) {}
 
@@ -79,5 +80,16 @@ export class AdminAllergenComponent implements OnInit {
 
   return() {
     this.router.navigateByUrl('/welcome');
+  }
+
+  updateAllergenUpdated(idAllergen: number) {
+    if (idAllergen > 0) {
+      let allergenFound: Allergen = this.allergens.filter(
+        (allergen) => allergen.idAllergen == idAllergen
+      )[0];
+      this.management.getAllergenById(idAllergen).subscribe((response) => {
+        allergenFound.name = response.name;
+      });
+    }
   }
 }

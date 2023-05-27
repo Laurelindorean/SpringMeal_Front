@@ -10,14 +10,15 @@ import Swal from 'sweetalert2';
   styleUrls: ['./admin-category.component.css'],
 })
 export class AdminCategoryComponent implements OnInit {
-  categories?: Category[] = [];
+  categories: Category[] = [];
+  public p?: number;
 
   constructor(private router: Router, private management: ManagementService) {}
   ngOnInit(): void {
     this.uploadCategories();
   }
 
-  uploadCategories(){
+  uploadCategories() {
     this.management.getAllCategories().subscribe(
       (data) => {
         data.forEach((categoryJson: any) => {
@@ -39,14 +40,13 @@ export class AdminCategoryComponent implements OnInit {
       (response) => {
         this.management.getAllCategories().subscribe((data) => {
           this.categories = [];
-          data.forEach((element: {id: any; name: string}) => {
-              let categoryDTO: Category = {
-                idCategory: element.id,
-                name: element.name,
-              };
-              this.categories?.push(categoryDTO);
-            }
-          );
+          data.forEach((element: { id: any; name: string }) => {
+            let categoryDTO: Category = {
+              idCategory: element.id,
+              name: element.name,
+            };
+            this.categories?.push(categoryDTO);
+          });
         });
       },
       (error) => {
@@ -66,7 +66,7 @@ export class AdminCategoryComponent implements OnInit {
       cancelButtonText: 'No, let me think',
     }).then((result) => {
       if (result.value) {
-        if(id == null || id == undefined){
+        if (id == null || id == undefined) {
           throw 'error';
         }
         this.delete(id);
@@ -81,5 +81,14 @@ export class AdminCategoryComponent implements OnInit {
     this.router.navigateByUrl('/welcome');
   }
 
-
+  updateCategoryUpdated(idCategory: number) {
+    if (idCategory > 0) {
+      let categoryFound: Category = this.categories.filter(
+        (category) => category.idCategory == idCategory
+      )[0];
+      this.management.getCategoryById(idCategory).subscribe((response) => {
+        categoryFound.name = response.name;
+      });
+    }
+  }
 }

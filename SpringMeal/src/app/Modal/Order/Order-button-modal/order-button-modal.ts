@@ -3,6 +3,7 @@ import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { OrderEditDialog } from '../Order-edit-dialog/order-edit-dialog';
+import { Order } from 'src/app/Model/Order';
 
 @Component({
   selector: 'app-order-button-modal',
@@ -13,11 +14,14 @@ import { OrderEditDialog } from '../Order-edit-dialog/order-edit-dialog';
 })
 
 export class OrderButtonModal {
+  @Input() order!:Order;
+  @Output() orderUpdated: EventEmitter<number> = new EventEmitter();
+
   constructor(public dialog:MatDialog){
   }
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-    this.dialog.open(OrderEditDialog, {
+    const dialogRef = this.dialog.open(OrderEditDialog, {
       width: '50%',
       autoFocus: true,
       maxWidth: '90vh',
@@ -25,6 +29,11 @@ export class OrderButtonModal {
       hasBackdrop: true, // background shadow
       enterAnimationDuration,
       exitAnimationDuration,
+      data: this.order
+    });
+
+    dialogRef.afterClosed().subscribe( idOrder => {
+      this.orderUpdated.emit(idOrder);
     });
   }
 }

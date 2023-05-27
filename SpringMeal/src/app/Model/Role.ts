@@ -1,4 +1,4 @@
-export class Rol {
+export class Role {
   idRol!:Number;
   name!:Number;
 }

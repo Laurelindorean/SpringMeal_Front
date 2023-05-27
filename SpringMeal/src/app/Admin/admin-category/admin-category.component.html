@@ -31,7 +31,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let category of categories">
+        <tr
+          *ngFor="
+            let category of categories
+              | paginate : { itemsPerPage: 10, currentPage: p }
+          "
+        >
           <td class="align-middle text-center">
             <span class="badge badge-sm bg-gradient-success"
               >{{ category.idCategory }}
@@ -43,7 +48,9 @@
             }}</span>
           </td>
           <td class="align-middle text-center">
-            <app-category-button-modal></app-category-button-modal>
+            <app-category-button-modal
+              [category]="category" (categoryUpdated)="updateCategoryUpdated($event)"
+            ></app-category-button-modal>
             <button
               mat-icon-button
               style="color: #e20074"
@@ -57,5 +64,11 @@
         </tr>
       </tbody>
     </table>
+    <pagination-controls
+      (pageChange)="p = $event"
+      previousLabel="Previous"
+      nextLabel="Next"
+      [responsive]="true"
+    ></pagination-controls>
   </div>
 </div>

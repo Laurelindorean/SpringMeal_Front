@@ -51,6 +51,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { AllergenButtonModal } from "./Modal/Allergen/Allergen-button-modal/allergen-button-modal";
 import { CategoryEditDialog } from "./Modal/Category/Category-edit-dialog/category-edit-dialog";
 import { CategoryButtonModal } from "./Modal/Category/Category-button-modal/category-button-modal";
+import {NgxPaginationModule} from 'ngx-pagination';
+import {MatSortModule} from '@angular/material/sort';
 
 @NgModule({
     declarations: [
@@ -107,7 +109,9 @@ import { CategoryButtonModal } from "./Modal/Category/Category-button-modal/cate
         OrderButtonModal,
         AllergenButtonModal,
         CategoryEditDialog,
-        CategoryButtonModal
+        CategoryButtonModal,
+        NgxPaginationModule,
+        MatSortModule
     ]
 })
 export class AppModule {}

@@ -51,7 +51,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let user of users">
+        <tr
+          *ngFor="
+            let user of users | paginate : { itemsPerPage: 10, currentPage: p }
+          "
+        >
           <td class="align-middle text-center">
             <span class="badge badge-sm bg-gradient-success">{{
               user.idUser
@@ -81,7 +85,7 @@
             }}</span>
           </td>
           <td class="align-middle text-center">
-            <app-button-modal></app-button-modal>
+            <app-button-modal [user]="user" (userUpdated)="updateUserUpdated($event)"></app-button-modal>
 
             <button
               mat-icon-button
@@ -96,5 +100,11 @@
         </tr>
       </tbody>
     </table>
+    <pagination-controls
+      (pageChange)="p = $event"
+      previousLabel="Previous"
+      nextLabel="Next"
+      [responsive]="true"
+    ></pagination-controls>
   </div>
 </div>

@@ -5,5 +5,5 @@ export class Order {
   date!:string;
   slot!:string;
   idUser!:number;
-
+  nameUser?:string;
 }

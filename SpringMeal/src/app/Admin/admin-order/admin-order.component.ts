@@ -5,13 +5,16 @@ import { Order } from 'src/app/Model/Order';
 import { ManagementService } from 'src/app/Service/management.service';
 import Swal from 'sweetalert2';
 
+
 @Component({
   selector: 'app-admin-order',
   templateUrl: './admin-order.component.html',
   styleUrls: ['./admin-order.component.css'],
 })
 export class AdminOrderComponent implements OnInit{
-  orders?: Order[] = [];
+  orders: Order[] = [];
+  public p?:number;
+
 
   constructor(private router: Router, private management: ManagementService) {}
 
@@ -29,7 +32,8 @@ export class AdminOrderComponent implements OnInit{
             idOrder: orderJson.id,
             date: new Date(orderJson.date).toLocaleDateString(),
             slot: `${orderJson.slot.start} - ${orderJson.slot.end}`,
-            idUser: orderJson.user.name,
+            idUser: orderJson.user.id,
+            nameUser: orderJson.user.name
           };
           this.orders?.push(orderDTO);
         });
@@ -95,5 +99,15 @@ export class AdminOrderComponent implements OnInit{
 
   return() {
     this.router.navigateByUrl('/welcome');
+  }
+
+  updateOrderUpdated(idOrder: number){
+    if(idOrder > 0){
+      let orderFound : Order = this.orders.filter(order => order.idOrder == idOrder)[0];
+      this.management.getOrderById(idOrder).subscribe( response => {
+        orderFound.date = new Date(response.date).toLocaleDateString();
+        orderFound.slot = `${response.slot.start} - ${response.slot.end}`;
+      });
+    }
   }
 }
