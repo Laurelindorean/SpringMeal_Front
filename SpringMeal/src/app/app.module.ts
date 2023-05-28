@@ -53,6 +53,9 @@ import { CategoryEditDialog } from "./Modal/Category/Category-edit-dialog/catego
 import { CategoryButtonModal } from "./Modal/Category/Category-button-modal/category-button-modal";
 import {NgxPaginationModule} from 'ngx-pagination';
 import {MatSortModule} from '@angular/material/sort';
+import { TestAllergenComponent } from './Admin/test-allergen/test-allergen.component';
+
+
 
 @NgModule({
     declarations: [
@@ -80,6 +83,9 @@ import {MatSortModule} from '@angular/material/sort';
         DishListComponent,
         FooterComponent,
         AboutUsComponent,
+        TestAllergenComponent,
+
+
     ],
     providers: [CookieService],
     bootstrap: [AppComponent],
@@ -111,7 +117,8 @@ import {MatSortModule} from '@angular/material/sort';
         CategoryEditDialog,
         CategoryButtonModal,
         NgxPaginationModule,
-        MatSortModule
+        MatSortModule,
+
     ]
 })
 export class AppModule {}

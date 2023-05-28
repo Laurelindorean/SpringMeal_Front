@@ -18,5 +18,10 @@
   {
     "name":"Category",
     "redirect":"/admin/category"
+  },
+  {
+    "name": "Test-Allergen",
+    "redirect":"/admin/test-allergen"
   }
+
 ]

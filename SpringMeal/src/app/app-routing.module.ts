@@ -21,6 +21,7 @@ import { CreateOrderComponent } from './Admin/create-order/create-order.componen
 import { CreateAllergenComponent } from './Admin/create-allergen/create-allergen.component';
 import { DishListComponent } from './dish-list/dish-list.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { TestAllergenComponent } from './Admin/test-allergen/test-allergen.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
@@ -43,6 +44,7 @@ const routes: Routes = [
   { path: 'admin/create-allergen', component: CreateAllergenComponent },
   { path: 'dish-list', component: DishListComponent },
   { path: 'about-us', component: AboutUsComponent },
+  {path: 'admin/test-allergen', component:TestAllergenComponent},
   { path: '**', redirectTo: 'login', pathMatch: 'full' },
 
 ];

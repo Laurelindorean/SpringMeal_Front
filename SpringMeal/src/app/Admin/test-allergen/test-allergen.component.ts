@@ -1,18 +1,20 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
-import { Category } from 'src/app/Model/Category';
-import { ManagementService } from 'src/app/Service/management.service';
-import Swal from 'sweetalert2';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { Category } from 'src/app/Model/Category';
+import { Order } from 'src/app/Model/Order';
+import { User } from 'src/app/Model/User';
+
+import { ManagementService } from 'src/app/Service/management.service';
+import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-admin-category',
-  templateUrl: './admin-category.component.html',
-  styleUrls: ['./admin-category.component.css'],
+  selector: 'app-test-allergen',
+  templateUrl: './test-allergen.component.html',
+  styleUrls: ['./test-allergen.component.css'],
 })
-export class AdminCategoryComponent implements OnInit {
+export class TestAllergenComponent implements OnInit {
   listCategory: Category[] = [];
   displayedColumns: string[] = ['id', 'name', 'options'];
   dataSource!: MatTableDataSource<Category>;
