@@ -15,6 +15,7 @@ import { ManagementService } from 'src/app/Service/management.service';
 import { DatePipe } from '@angular/common';
 import Swal from 'sweetalert2';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { UserServiceService } from 'src/app/Service/user-service.service';
 //import '@angular/compiler'
 
 @Component({
@@ -32,7 +33,8 @@ export class OrderComponent implements OnInit {
   constructor(
     private management: ManagementService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private userService : UserServiceService
   ) {
     this.form = new FormGroup({
       date: new FormControl(''),
@@ -90,7 +92,7 @@ export class OrderComponent implements OnInit {
 
   addOrder() {
     if (!this.validOrder()) {
-      this.return;
+      return;
     }
 
     let request = {
@@ -99,7 +101,7 @@ export class OrderComponent implements OnInit {
         id: this.form.value.slot.id
       },
       user: {
-        id:  Number(this.form.value.user)
+        id: Number(this.userService.getUserID())
       }
     }
     console.log(request);
@@ -110,23 +112,15 @@ export class OrderComponent implements OnInit {
           icon: 'success',
           title: 'Order created',
           showConfirmButton: false,
-          timer: 1500
+          timer: 1000
         })
-        this.cleanRegisterForm();
+        this.router.navigateByUrl('/welcome')
+        
+      },
+      (error) => {
+        console.log(error);
       }
     );
-  }
-
-  return() {
-    this.router.navigateByUrl('/admin/order');
-  }
-
-  cleanRegisterForm(){
-    this.form = new FormGroup({
-      date: new FormControl(''),
-      slot: new FormControl(''),
-      user: new FormControl(''),
-    });
   }
 }
 

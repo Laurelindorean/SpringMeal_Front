@@ -42,7 +42,7 @@ export class UserServiceService {
   setUserID(id:string) {
     this.cookie.set("userid",id, 30, "/");
     }
-  getUserID(){
+  getUserID() {
     return this.cookie.get("userid");
   }
 
