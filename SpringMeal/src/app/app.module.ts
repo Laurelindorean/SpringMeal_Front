@@ -55,7 +55,6 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import {MatSortModule} from '@angular/material/sort';
 import { ChartComponent } from './OrdersDishes/chart/chart.component';
 import { AllergenComponent } from './OrdersDishes/allergen/allergen.component';
-import { DateSlotComponent } from './OrdersDishes/date-slot/date-slot.component';
 
 
 
@@ -86,8 +85,7 @@ import { DateSlotComponent } from './OrdersDishes/date-slot/date-slot.component'
         FooterComponent,
         AboutUsComponent,
         ChartComponent,
-        AllergenComponent,
-        DateSlotComponent
+        AllergenComponent
     ],
     providers: [CookieService],
     bootstrap: [AppComponent],
