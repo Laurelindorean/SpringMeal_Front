@@ -79,8 +79,7 @@ export class AdminOrderComponent implements OnInit{
         this.management.getAllOrders().subscribe((data) => {
           this.listOrders = [];
 
-          data.forEach(
-            (element: {
+          data.forEach((element: {
               id: any;
               date: string | number | Date;
               slot: { start: any, end: any };

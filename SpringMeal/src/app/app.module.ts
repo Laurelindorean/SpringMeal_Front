@@ -56,6 +56,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { ChartComponent } from './OrdersDishes/chart/chart.component';
 import { AllergenComponent } from './OrdersDishes/allergen/allergen.component';
 import { DateSlotComponent } from './OrdersDishes/date-slot/date-slot.component';
+import { DishButtonModal } from "./Modal/Dish/Dish-button-modal/dish-button-modal";
+import { DishDialogModal } from './Modal/Dish/Dish-dialog-modal/dish-dialog-modal';
 
 
 
@@ -119,7 +121,8 @@ import { DateSlotComponent } from './OrdersDishes/date-slot/date-slot.component'
         CategoryEditDialog,
         CategoryButtonModal,
         NgxPaginationModule,
-        MatSortModule
+        MatSortModule,
+        DishButtonModal
     ]
 })
 export class AppModule {}
