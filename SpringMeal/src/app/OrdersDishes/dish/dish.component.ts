@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { UtilsService } from '../Service/utils.service';
+import { UtilsService } from '../../Service/utils.service';
 
 @Component({
   selector: 'app-dish',
@@ -11,12 +11,19 @@ import { UtilsService } from '../Service/utils.service';
 export class DishComponent {
 
   @Input() dish: any;
+  @Input() allergens : Record<number,any[]> = {}
   @Input() actions: any;
-  @Output() addToChart = new EventEmitter();
+
 
   constructor(public utils : UtilsService)  {}
 
-  emit_addToChart() {
-    this.addToChart.emit(this.dish);
+  addToChart() {
+    this.dish.chart = true;
+    console.log(this.dish);
+  }
+
+  removeFromChart() {
+    this.dish.chart = false;
+    console.log(this.dish);
   }
 }

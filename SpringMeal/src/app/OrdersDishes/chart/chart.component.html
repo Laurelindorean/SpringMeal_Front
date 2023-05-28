@@ -1,0 +1,35 @@
+<div class="container card highlighted">
+    <h2 class="text-center mt-2"> 
+        Chart <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+    </h2>
+    <div class="table-responsive p-1">
+        <table class="table align-items-center mb-0" style="border-color: #e20075a4;">
+            <tbody class="align-left text-left text-sm">
+                <tr *ngFor="let dish of dishes" >
+                    <td *ngIf="dish.chart">
+                        {{ utils.capitalizeFirst(dish.name) }}
+                    </td>
+                    <td *ngIf="dish.chart" class="text-end">
+                        € {{ dish.price.toFixed(2) }}
+                    </td>
+                    <td *ngIf="dish.chart" class="text-end">
+                        <a>
+                            <i class="fa fa-close" (click)="dish.chart = false"> </i>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>TOTAL:</b>
+                    </td>
+                    <td class="text-end">
+                        <b>€ {{ totalPrice().toFixed(2) }}</b>
+                    </td>
+                    <td style="color: #00000000;" class="text-end">
+                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
