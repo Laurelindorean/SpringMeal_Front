@@ -1,0 +1,29 @@
+<div class="my-4">
+    <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+      <div class="card-body px-0 pb-2">
+        <div class="table-responsive p-0">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="sticky-tabs">
+                  <ul class="nav nav-tabs">
+                    <li class="nav-item" *ngFor="let category of categories" style="font-size: 16px;">
+                      <a class="nav-link" [class.active]="currentCategory === category" (click)="changeCategory(category)">
+                        {{ utils.capitalizeFirst(category) + "s" }}
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div *ngFor="let dish of dishes">
+                  <div *ngIf="dish.category.name === currentCategory">
+                    <app-dish [dish]="dish" [allergens]="allergens" [actions]="actions"></app-dish>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -12,8 +12,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CategoryComponent } from './category/category.component';
-import { DishComponent } from './dish/dish.component';
-import { OrderComponent } from './order/order.component';
+import { DishComponent } from './OrdersDishes/dish/dish.component';
+import { OrderComponent } from './OrdersDishes/order/order.component';
 import { AdminDishComponent } from './Admin/admin-dish/admin-dish.component';
 import { AdminOrderComponent } from './Admin/admin-order/admin-order.component';
 import { AdminUserComponent } from './Admin/admin-user/admin-user.component';
@@ -21,7 +21,7 @@ import { AdminSlotComponent } from './Admin/admin-slot/admin-slot.component';
 import { AdminCategoryComponent } from './Admin/admin-category/admin-category.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProfileComponent } from './profile/profile.component';
-import { DishListComponent } from './dish-list/dish-list.component';
+import { DishListComponent } from './OrdersDishes/dish-list/dish-list.component';
 import { CreateCategoryComponent } from './Admin/create-category/create-category.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -43,6 +43,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { CreateAllergenComponent } from './Admin/create-allergen/create-allergen.component';
 import { ButtonModalComponent } from './Modal/button-modal/button-modal.component';
 import {MatDividerModule} from '@angular/material/divider';
+import { ChartComponent } from './OrdersDishes/chart/chart.component';
+import { AllergenComponent } from './OrdersDishes/allergen/allergen.component';
+import { DateSlotComponent } from './OrdersDishes/date-slot/date-slot.component';
 
 
 
@@ -69,7 +72,10 @@ import {MatDividerModule} from '@angular/material/divider';
         CreateUserComponent,
         CreateOrderComponent,
         CreateAllergenComponent,
-        DishListComponent
+        DishListComponent,
+        ChartComponent,
+        AllergenComponent,
+        DateSlotComponent
     ],
     providers: [CookieService],
     bootstrap: [AppComponent],
