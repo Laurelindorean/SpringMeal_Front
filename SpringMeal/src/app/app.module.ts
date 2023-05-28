@@ -46,79 +46,72 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AcceptTermsComponent } from './Modal/accept-terms/accept-terms.component';
 import { FooterComponent } from './footer/footer.component';
-import { OrderButtonModal } from "./Modal/Order/Order-button-modal/order-button-modal";
+import { OrderButtonModal } from './Modal/Order/Order-button-modal/order-button-modal';
 import { AboutUsComponent } from './about-us/about-us.component';
-import { AllergenButtonModal } from "./Modal/Allergen/Allergen-button-modal/allergen-button-modal";
-import { CategoryEditDialog } from "./Modal/Category/Category-edit-dialog/category-edit-dialog";
-import { CategoryButtonModal } from "./Modal/Category/Category-button-modal/category-button-modal";
-import {NgxPaginationModule} from 'ngx-pagination';
-import {MatSortModule} from '@angular/material/sort';
-import { TestAllergenComponent } from './Admin/test-allergen/test-allergen.component';
-
-
+import { AllergenButtonModal } from './Modal/Allergen/Allergen-button-modal/allergen-button-modal';
+import { CategoryEditDialog } from './Modal/Category/Category-edit-dialog/category-edit-dialog';
+import { CategoryButtonModal } from './Modal/Category/Category-button-modal/category-button-modal';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        LoginComponent,
-        RegisterComponent,
-        WelcomeComponent,
-        NavbarComponent,
-        CategoryComponent,
-        DishComponent,
-        OrderComponent,
-        AdminDishComponent,
-        AdminOrderComponent,
-        AdminUserComponent,
-        AdminSlotComponent,
-        AdminCategoryComponent,
-        ContactComponent,
-        ProfileComponent,
-        CreateCategoryComponent,
-        AdminAllergenComponent,
-        NavbarAdminComponent,
-        CreateUserComponent,
-        CreateOrderComponent,
-        CreateAllergenComponent,
-        DishListComponent,
-        FooterComponent,
-        AboutUsComponent,
-        TestAllergenComponent,
-
-
-    ],
-    providers: [CookieService],
-    bootstrap: [AppComponent],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        FormsModule,
-        ReactiveFormsModule,
-        BrowserAnimationsModule,
-        MatToolbarModule,
-        MatButtonModule,
-        MatCardModule,
-        MatGridListModule,
-        MatInputModule,
-        MatFormFieldModule,
-        MatIconModule,
-        MatSelectModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MatTableModule,
-        MatPaginatorModule,
-        ButtonModalComponent,
-        MatDividerModule,
-        MatDialogModule,
-        AcceptTermsComponent,
-        OrderButtonModal,
-        AllergenButtonModal,
-        CategoryEditDialog,
-        CategoryButtonModal,
-        NgxPaginationModule,
-        MatSortModule,
-
-    ]
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    RegisterComponent,
+    WelcomeComponent,
+    NavbarComponent,
+    CategoryComponent,
+    DishComponent,
+    OrderComponent,
+    AdminDishComponent,
+    AdminOrderComponent,
+    AdminUserComponent,
+    AdminSlotComponent,
+    AdminCategoryComponent,
+    ContactComponent,
+    ProfileComponent,
+    CreateCategoryComponent,
+    AdminAllergenComponent,
+    NavbarAdminComponent,
+    CreateUserComponent,
+    CreateOrderComponent,
+    CreateAllergenComponent,
+    DishListComponent,
+    FooterComponent,
+    AboutUsComponent,
+  ],
+  providers: [CookieService],
+  bootstrap: [AppComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatCardModule,
+    MatGridListModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatTableModule,
+    MatPaginatorModule,
+    ButtonModalComponent,
+    MatDividerModule,
+    MatDialogModule,
+    AcceptTermsComponent,
+    OrderButtonModal,
+    AllergenButtonModal,
+    CategoryEditDialog,
+    CategoryButtonModal,
+    NgxPaginationModule,
+    MatSortModule,
+  ],
 })
 export class AppModule {}
