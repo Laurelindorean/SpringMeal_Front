@@ -21,27 +21,28 @@ import { CreateOrderComponent } from './Admin/create-order/create-order.componen
 import { CreateAllergenComponent } from './Admin/create-allergen/create-allergen.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { DishListComponent } from './OrdersDishes/dish-list/dish-list.component';
+import { CreateDishComponent } from './Admin/create-dish/create-dish.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'login', component: LoginComponent },
   { path: 'sign-up', component: RegisterComponent },
   { path: 'welcome', component: WelcomeComponent },
+  { path: 'order', component: OrderComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'about-us', component: AboutUsComponent },
   { path: 'admin/order', component: AdminOrderComponent },
   { path: 'admin/category', component: AdminCategoryComponent },
   { path: 'admin/slot', component: AdminSlotComponent },
   { path: 'admin/user', component: AdminUserComponent },
-  { path: 'admin/create-category', component: CreateCategoryComponent },
-  { path: 'order', component: OrderComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'profile', component: ProfileComponent },
   { path: 'admin/dish', component: AdminDishComponent },
-  { path: 'admin/create-user', component: CreateUserComponent },
   { path: 'admin/allergen', component: AdminAllergenComponent },
+  { path: 'admin/create-user', component: CreateUserComponent },
   { path: 'admin/create-order', component: CreateOrderComponent },
   { path: 'admin/create-allergen', component: CreateAllergenComponent },
-  { path: 'dish-list', component: DishListComponent },
-  { path: 'about-us', component: AboutUsComponent },
+  { path: 'admin/create-category', component: CreateCategoryComponent },
+  { path: 'admin/create-dish', component: CreateDishComponent },
   { path: '**', redirectTo: 'login', pathMatch: 'full' },
 
 ];

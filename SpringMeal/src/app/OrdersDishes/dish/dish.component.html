@@ -5,7 +5,7 @@
         <div class="col-md-3">
             <div class="d-flex align-items-center" style="height: 100%">
                 <div class="w-100 text-center">
-                    <img src="data:image/png;base64, {{dish.image}}" class="img-fluid" alt="">
+                    <img src="data:image/png;base64, {{dish.image}}" class="img-fluid" alt="" style="max-height: 140px; max-width: 140px;">
                 </div>
             </div>
         </div>
@@ -15,8 +15,9 @@
                     {{ utils.capitalizeFirst(dish.name) }}
                 </h3>
                 <p class="card-text">
-                    {{ utils.capitalizeFirst(dish.description) }} <br/>
-                    Allergens:
+                    {{ utils.capitalizeFirst(dish.description) }}
+                </p>
+                <p class="card-text">                    
                     <span *ngFor="let allergen of allergens[dish.id]">
                         {{ allergen }}
                     </span>
@@ -39,7 +40,27 @@
             </div>
         </div>
         <div class="col-md-3" *ngIf="actions === 'crud'">
-            TODO: crud
+            <div class="d-flex align-items-center" style="height: 100%">
+                <div class="w-100 text-center">
+                    <button
+                        mat-icon-button
+                        color="primary"
+                        aria-label="Example icon button with a home icon"
+                        (click)="openDialog('500ms', '500ms')"
+                        mat-icon
+                        >
+                        <mat-icon>edit</mat-icon>
+                        </button>
+                    <button
+                    mat-icon-button
+                    style="color: #e20074"
+                    color="primary"
+                    aria-label="Example icon button with a home icon"
+                    (click)="alertConfirmation()"
+                    >
+                    <mat-icon>delete</mat-icon>
+                    </button>
+            </div>
         </div>
     </div>
 </div>

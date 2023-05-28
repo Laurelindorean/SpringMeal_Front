@@ -1,0 +1,71 @@
+<div class="modal-container">
+    <!-- Titulo del modal -->
+    <header class="modal-header">
+      <h1 mat-dialog-title>Update Dish</h1>
+      <mat-divider></mat-divider>
+    </header>
+  
+    <!-- Cuerpo del modal -->
+    <body class="modal-body">
+      <mat-card>
+        <mat-card-content>
+            <form [formGroup]="form">
+                <mat-grid-list cols="4" rowHeight="70px">
+                  <mat-grid-tile [colspan]="2" [rowspan]="1"
+                    ><mat-form-field class="input-size">
+                      <mat-label>Name</mat-label>
+                      <input
+                        matInput
+                        autocomplete="off"
+                        required="required"
+                        formControlName="name"
+                      /> </mat-form-field
+                  ></mat-grid-tile>
+                  <mat-grid-tile [colspan]="2" [rowspan]="1"
+                    ><mat-form-field class="input-size">
+                      <mat-label>Price</mat-label>
+                      <input
+                        matInput
+                        autocomplete="off"
+                        required="required"
+                        formControlName="price"
+                      /> </mat-form-field
+                  ></mat-grid-tile>
+                  <mat-grid-tile [colspan]="4" [rowspan]="1"
+                    ><mat-form-field style="width: 90%;">
+                      <mat-label>Description</mat-label>
+                      <input
+                        matInput
+                        autocomplete="off"
+                        required="required"
+                        formControlName="description"
+                      /> </mat-form-field
+                  ></mat-grid-tile>
+                  <mat-grid-tile [colspan]="2" [rowspan]="1">
+                    <mat-form-field class="input-size">
+                      <mat-label>Category</mat-label>
+                      <mat-select formControlName="category" >
+                        <mat-option *ngFor="let category of categories" [value]="category.id">
+                          {{utils.capitalizeFirst(category.name)}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </mat-grid-tile>
+                  <mat-grid-tile [colspan]="2" [rowspan]="1"> 
+                    <p>Image: </p>  
+                    <input (change)="onFileSelected($event)" #fileInput label="image" accept=".png" type="file" id="file"> 
+                  </mat-grid-tile>
+                </mat-grid-list>
+            </form>
+        </mat-card-content>
+      </mat-card>
+    </body>
+    <!-- Footer del modal -->
+    <footer class="modal-footer">
+      <div mat-dialog-actions class="botones-container">
+        <button mat-stroked-button color="accent" (click)="updateDish()" >Save</button>
+        <button mat-dialog-close mat-stroked-button color="accent">Back</button>
+      </div>
+    </footer>
+  </div>
+  

@@ -24,6 +24,7 @@
     "jquery": "^3.7.0",
     "material-dashboard": "^3.0.9",
     "ngx-cookie-service": "^16.0.0",
+    "ngx-material-file-input": "^4.0.1",
     "ngx-pagination": "^6.0.3",
     "rxjs": "~7.8.0",
     "sweetalert2": "^11.4.8",

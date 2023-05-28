@@ -55,6 +55,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import {MatSortModule} from '@angular/material/sort';
 import { ChartComponent } from './OrdersDishes/chart/chart.component';
 import { AllergenComponent } from './OrdersDishes/allergen/allergen.component';
+import { CreateDishComponent } from './Admin/create-dish/create-dish.component';
+import { MaterialFileInputModule } from 'ngx-material-file-input';
+import { DishEditDialog } from './Modal/dish-edit-dialog/dish-edit-dialog.component';
 
 
 
@@ -85,7 +88,9 @@ import { AllergenComponent } from './OrdersDishes/allergen/allergen.component';
         FooterComponent,
         AboutUsComponent,
         ChartComponent,
-        AllergenComponent
+        AllergenComponent,
+        CreateDishComponent,
+        DishEditDialog
     ],
     providers: [CookieService],
     bootstrap: [AppComponent],
@@ -117,7 +122,8 @@ import { AllergenComponent } from './OrdersDishes/allergen/allergen.component';
         CategoryEditDialog,
         CategoryButtonModal,
         NgxPaginationModule,
-        MatSortModule
+        MatSortModule,
+        MaterialFileInputModule
     ]
 })
 export class AppModule {}
