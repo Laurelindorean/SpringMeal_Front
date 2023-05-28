@@ -43,7 +43,6 @@ const routes: Routes = [
   { path: 'dish-list', component: DishListComponent },
   { path: 'about-us', component: AboutUsComponent },
   { path: '**', redirectTo: 'login', pathMatch: 'full' },
-
 ];
 
 @NgModule({

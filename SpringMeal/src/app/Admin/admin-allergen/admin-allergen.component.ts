@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatSort, MatSortModule } from '@angular/material/sort';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Allergen } from 'src/app/Model/allergen';
 import { ManagementService } from 'src/app/Service/management.service';
 import Swal from 'sweetalert2';
@@ -10,52 +14,31 @@ import Swal from 'sweetalert2';
   styleUrls: ['./admin-allergen.component.css'],
 })
 export class AdminAllergenComponent implements OnInit {
-  allergens: Allergen[] = [];
-  public p?: number;
+  listAllergens: Allergen[] = [];
+  displayedColumns: string[] = ['id', 'name', 'options'];
+  dataSource!: MatTableDataSource<Allergen>;
 
-  constructor(private router: Router, private management: ManagementService) {}
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
-  ngOnInit(): void {
+  constructor(private management: ManagementService) {
     this.uploadAllergens();
   }
+
+  ngOnInit(): void {}
+
+  ngAfterViewInit() {}
 
   uploadAllergens() {
     this.management.getAllAllergens().subscribe(
       (data) => {
-        data.forEach((allergenJson: any) => {
-          let allergenDTO: Allergen = {
-            idAllergen: allergenJson.id,
-            name: allergenJson.name,
-          };
-          this.allergens?.push(allergenDTO);
-        });
+        this.getData();
       },
       (error) => {
         console.log(error);
       }
     );
   }
-
-  delete(id: number) {
-    this.management.deleteAllergen(id).subscribe(
-      (response) => {
-        this.management.getAllAllergens().subscribe((data) => {
-          this.allergens = [];
-          data.forEach((element: { id: any; name: string }) => {
-            let allergenDTO: Allergen = {
-              idAllergen: element.id,
-              name: element.name,
-            };
-            this.allergens?.push(allergenDTO);
-          });
-        });
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
-
   alertConfirmation(idAllergen?: number) {
     Swal.fire({
       title: 'Are you sure?',
@@ -71,6 +54,7 @@ export class AdminAllergenComponent implements OnInit {
           throw 'error';
         }
         this.delete(idAllergen);
+
         Swal.fire('Removed!', 'Product removed successfully.');
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire('Cancelled', 'Product still in our database.)', 'error');
@@ -78,18 +62,51 @@ export class AdminAllergenComponent implements OnInit {
     });
   }
 
-  return() {
-    this.router.navigateByUrl('/welcome');
+  delete(id: number) {
+    this.management.deleteAllergen(id).subscribe(
+      (response) => {
+        this.getData();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    console.log('filterValue: ' + filterValue);
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
   updateAllergenUpdated(idAllergen: number) {
     if (idAllergen > 0) {
-      let allergenFound: Allergen = this.allergens.filter(
+      let allergenFound: Allergen = this.listAllergens.filter(
         (allergen) => allergen.idAllergen == idAllergen
       )[0];
       this.management.getAllergenById(idAllergen).subscribe((response) => {
         allergenFound.name = response.name;
       });
     }
+  }
+
+  getData() {
+    this.management.getAllAllergens().subscribe((data) => {
+      this.listAllergens = [];
+      data.forEach((element: { id: any; name: string }) => {
+        let allergenDTO: Allergen = {
+          idAllergen: element.id,
+          name: element.name,
+        };
+        this.listAllergens?.push(allergenDTO);
+        this.dataSource = new MatTableDataSource(this.listAllergens);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      });
+    });
   }
 }
