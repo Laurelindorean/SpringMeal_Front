@@ -23,11 +23,11 @@ export class UserServiceService {
 
   login(user: any): Observable<any> {
     //return this.http.post('http://localhost:6752/api/auth/signin', user);
-    return this.http.post(`${this.api}/api/auth/signin`, user);
+    return this.http.post(`${this.api}/auth/signin`, user);
   }
   register(user:any):Observable<any>{
     //return this.http.post('http://localhost:6752/api/auth/signup', user, {responseType: 'text'});
-    return this.http.post(`${this.api}/api/auth/signup`, user, {responseType: 'text'});
+    return this.http.post(`${this.api}/auth/signup`, user, {responseType: 'text'});
   }
   get(id:string): Observable<any> {
     console.log(`${this.api}/users/${id}`);
@@ -36,7 +36,7 @@ export class UserServiceService {
   }
   update(id:string, user:any): Observable<any> {
     //return this.http.put(`http://localhost:6752/api/users/${id}`, user, {headers : this.getHeaders()});
-    return this.http.put(`${this.api}/api/users/${id}`, user, {headers : this.getHeaders()});
+    return this.http.put(`${this.api}/users/${id}`, user, {headers : this.getHeaders()});
   }
 
   setUserID(id:string) {
