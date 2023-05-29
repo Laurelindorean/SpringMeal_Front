@@ -6,7 +6,7 @@
 iframe{
   width: 350px;
   height: 350px;
-  margin-left: 200px;
+  margin-right: 10px;
   display: flex;
   margin-top: 20px;
 
@@ -17,7 +17,6 @@ iframe{
   justify-content: center;
 }
 .contact-text{
-  margin-left: 100px;
   margin-top: 50px;
   position: relative;
 }
