@@ -1,0 +1,58 @@
+<!--
+  <div class="modal-container">
+  <mat-card>
+    <mat-card-content>
+      <mat-list role="list" >
+        <mat-list-item role="listitem">Dishes</mat-list-item>
+        <mat-divider></mat-divider>
+      </mat-list>
+    </mat-card-content>
+    <div *ngFor="let dish of dishes">
+      id: {{dish.idDish}}
+      name: {{dish.name}}
+      price: {{dish.price}}
+      description: {{dish.description}}
+    </div>
+    <div mat-dialog-actions class="botones-container">
+      <button mat-dialog-close mat-stroked-button color="accent">Back</button>
+    </div>
+  </mat-card>
+</div>
+-->
+
+
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" *ngIf="this.dataSource != null; else tablaVacia" >
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let row"> {{row.idDish}} </td>
+    </ng-container>
+
+    <!-- Progress Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+    </ng-container>
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let row"> {{row.description}} </td>
+    </ng-container>
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef> Price </th>
+      <td mat-cell *matCellDef="let row"> {{row.price}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+
+</div>
+
+
+
+<ng-template #tablaVacia>
+  <tr>
+    <td colspan="50" class="tabla-vacia">No data available in the table.</td>
+  </tr>
+</ng-template>

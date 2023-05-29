@@ -44,7 +44,6 @@ const routes: Routes = [
   { path: 'admin/create-category', component: CreateCategoryComponent },
   { path: 'admin/create-dish', component: CreateDishComponent },
   { path: '**', redirectTo: 'login', pathMatch: 'full' },
-
 ];
 
 @NgModule({
