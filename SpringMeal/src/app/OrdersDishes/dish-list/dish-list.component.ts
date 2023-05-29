@@ -13,7 +13,7 @@ export class DishListComponent {
   allergens : Record<number,any[]> = {}
   currentCategory: string = '';
   @Input() actions!: string;
-  @Input() dishes!: any;
+  @Input() dishes!: any[];
 
 
   constructor(private management: ManagementService, public router: Router, public utils : UtilsService)  {
@@ -21,7 +21,6 @@ export class DishListComponent {
   }
   
   ngOnInit() : void {
-    console.log(this.dishes);
     
     this.management.getAllCategories().subscribe(
       (data) => {
@@ -46,7 +45,6 @@ export class DishListComponent {
           this.allergens[allergen_dish.dish.id].push(allergen_dish.allergens.name);
         });
         console.log(this.allergens);
-        
       },
       (error) => {
         console.log(error);
@@ -59,8 +57,8 @@ export class DishListComponent {
     this.currentCategory = category;
   }
 
-  aux(): void {
-    console.log(this.dishes);
-    console.log(this.dishes);
+  deleteDish(dish: any) { //The dish has been removed from the DB. Display accordingly.
+    let idx = this.dishes.indexOf(dish);
+    this.dishes.splice(idx, 1);
   }
 }

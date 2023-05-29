@@ -6,11 +6,16 @@
     <button
       mat-raised-button
       style="background-color: #e20074; color: white"
-      routerLink="/admin/create-order"
+      routerLink="/admin/create-dish"
     >
       Add
     </button>
   </mat-toolbar>
-
 </div>
+
+<div style="height: 2em;"></div>
+
+<app-dish-list [dishes]="dishes" actions="crud"></app-dish-list>
+
+
 

@@ -55,9 +55,13 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { MatSortModule } from '@angular/material/sort';
 import { ChartComponent } from './OrdersDishes/chart/chart.component';
 import { AllergenComponent } from './OrdersDishes/allergen/allergen.component';
+import { CreateDishComponent } from './Admin/create-dish/create-dish.component';
+import { MaterialFileInputModule } from 'ngx-material-file-input';
+import { DishEditDialog } from './Modal/dish-edit-dialog/dish-edit-dialog.component';
 import { DateSlotComponent } from './OrdersDishes/date-slot/date-slot.component';
 import { DishButtonModal } from "./Modal/Dish/Dish-button-modal/dish-button-modal";
 import { DishDialogModal } from './Modal/Dish/Dish-dialog-modal/dish-dialog-modal';
+
 
 
 
@@ -89,7 +93,8 @@ import { DishDialogModal } from './Modal/Dish/Dish-dialog-modal/dish-dialog-moda
         AboutUsComponent,
         ChartComponent,
         AllergenComponent,
-        DateSlotComponent
+        CreateDishComponent,
+        DishEditDialog
     ],
     providers: [CookieService],
     bootstrap: [AppComponent],
@@ -122,6 +127,7 @@ import { DishDialogModal } from './Modal/Dish/Dish-dialog-modal/dish-dialog-moda
         CategoryButtonModal,
         NgxPaginationModule,
         MatSortModule,
+        MaterialFileInputModule,
         DishButtonModal
     ]
 })
