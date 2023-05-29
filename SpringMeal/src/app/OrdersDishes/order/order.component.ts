@@ -48,6 +48,7 @@ export class OrderComponent implements OnInit {
   ngOnInit(): void {
     this.management.getAllDishes().subscribe(
       (data) => {
+        console.log("Respuesta backend: " + JSON.stringify(data))
         this.dishes = data;
         this.dishes.forEach(dishs => {
           dishs.chart = false;
@@ -105,7 +106,7 @@ export class OrderComponent implements OnInit {
       }
     }
     console.log(request);
-    this.management.addOrderByAdmin(request).subscribe(
+    this.management.addOrder(request).subscribe(
       (data) => {
         Swal.fire({
           position: 'center',
@@ -115,7 +116,7 @@ export class OrderComponent implements OnInit {
           timer: 1000
         })
         this.router.navigateByUrl('/welcome')
-        
+
       },
       (error) => {
         console.log(error);

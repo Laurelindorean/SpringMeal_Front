@@ -9,7 +9,7 @@
                   <ul class="nav nav-tabs">
                     <li class="nav-item" *ngFor="let category of categories" style="font-size: 16px;">
                       <a class="nav-link" [class.active]="currentCategory === category" (click)="changeCategory(category)">
-                        {{ utils.capitalizeFirst(category) + "s" }}
+                        {{ utils.capitalizeFirst(category)}}
                       </a>
                     </li>
                   </ul>
@@ -26,4 +26,3 @@
       </div>
     </div>
   </div>
-  
