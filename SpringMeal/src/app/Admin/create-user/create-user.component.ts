@@ -93,7 +93,7 @@ export class CreateUserComponent implements OnInit {
         icon: 'success',
         title: 'User created',
         showConfirmButton: false,
-        timer1000
+        timer : 1000
       })
       this.cleanRegisterForm();
     });

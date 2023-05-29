@@ -86,7 +86,7 @@ export class CreateOrderComponent implements OnInit {
           icon: 'success',
           title: 'Order created',
           showConfirmButton: false,
-          timer1000
+          timer : 1000
         })
         this.cleanRegisterForm();
       }

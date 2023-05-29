@@ -102,7 +102,7 @@ export class CreateDishComponent implements OnInit {
         icon: 'success',
         title: 'Dish created',
         showConfirmButton: false,
-        timer1000
+        timer : 1000
       })
     });
   }

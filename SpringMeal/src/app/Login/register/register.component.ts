@@ -130,7 +130,7 @@ export class RegisterComponent implements OnInit {
           icon: 'success',
           title: 'Your registration is complete, now you can log in',
           showConfirmButton: false,
-          timer1000,
+          timer : 1000,
         });
         this.router.navigate(['/login']);
       },

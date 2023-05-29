@@ -132,7 +132,7 @@ export class DishEditDialog implements OnInit {
           icon: 'success',
           title: 'Dish updated',
           showConfirmButton: false,
-          timer1000
+          timer : 1000
         })
       }, (error) => {
 
