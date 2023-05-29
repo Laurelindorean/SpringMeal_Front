@@ -284,7 +284,7 @@ export class ManagementService {
     return this.http.get(`${this.api}/orderdish`, this.httpHeaders);
   }
 
-  addOrderDish(orderDish: OrderDish): Observable<any> {
+  addOrderDish(orderDish: OrderDish | any): Observable<any> {
     return this.http.post(`${this.api}/orderdish`, orderDish, this.httpHeaders);
   }
 

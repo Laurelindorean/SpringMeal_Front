@@ -97,7 +97,7 @@ export class OrderComponent implements OnInit {
       return;
     }
 
-    let request = {
+    let new_order = {
       date:  new DatePipe('en-US').transform(this.form.value.date, 'YYYY-MM-dd') ,
       slot: {
         id: this.form.value.slot.id
@@ -106,9 +106,20 @@ export class OrderComponent implements OnInit {
         id: Number(this.userService.getUserID())
       }
     }
-    console.log(request);
-    this.management.addOrder(request).subscribe(
+    console.log(new_order);
+    this.management.addOrder(new_order).subscribe(
       (data) => {
+        let id_order = data.id;
+        for (let dish of this.dishes) {
+          if (dish.chart) {
+            this.management.addOrderDish({
+              dish : {id : dish.id},
+              order : {id : id_order}
+            })
+          }
+        }
+
+
         Swal.fire({
           position: 'center',
           icon: 'success',
