@@ -94,6 +94,7 @@ export class OrderComponent implements OnInit {
   }
 
   addOrder() {
+    
     if (!this.validOrder()) {
       return;
     }
@@ -110,13 +111,21 @@ export class OrderComponent implements OnInit {
     console.log(new_order);
     this.management.addOrder(new_order).subscribe(
       (data) => {
+        console.log("new_order", new_order);
+        console.log("data", data);
+        
+        
+        
         let id_order = data.id;
         for (let dish of this.dishes) {
           if (dish.chart) {
             this.management.addOrderDish({
               dish : {id : dish.id},
               order : {id : id_order}
-            })
+            }).subscribe(
+              (data) => {console.log("orderdish", data);},
+              (error) => {console.log(error);}
+            )
           }
         }
 
