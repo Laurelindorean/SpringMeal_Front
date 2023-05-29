@@ -90,16 +90,25 @@ export class DishEditDialog implements OnInit {
     if (this.form.invalid) {
       return;
     }
-    this.dish = this.form.value;
+    this.dish.name = this.form.value.name;
+    this.dish.price = this.form.value.price;
+    this.dish.category =  this.categories.find((x) => x.id === this.form.value.category);
+    this.dish.description = this.form.value.description;
     if (this.image != "") {
       this.dish.image = this.image;
     }
+    console.log(this.categories);
+    console.log("this.val.cat:");
+    
+    console.log(this.dish.category);
+    
+    
     this.management.updateDishes(this.dish.id, this.dish).subscribe((data) => {
       console.log(data);
       Swal.fire({
         position: 'center',
         icon: 'success',
-        title: 'Dish created',
+        title: 'Dish updated',
         showConfirmButton: false,
         timer: 1500
       })

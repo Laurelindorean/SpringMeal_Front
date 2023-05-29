@@ -83,6 +83,8 @@ export class ManagementService {
   }
 
   updateDishes(idDish: number, updatedDish: Dish): Observable<any> {
+    console.log(updatedDish);
+    
     return this.http.put(
       `${this.api}/dishes/${idDish}`,
       updatedDish,
