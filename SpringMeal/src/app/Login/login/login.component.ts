@@ -22,7 +22,7 @@ export class LoginComponent {
         this.userService.setToken(data.token);
         this.userService.setRole(data.roleName);
         this.userService.setUserID(data.userid);
-        this.router.navigateByUrl('/welcome');
+        this.router.navigate(['welcome']);
       },
       (error) => {
         alert('Wrong Username or Password');

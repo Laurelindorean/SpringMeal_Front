@@ -63,7 +63,7 @@ export class ManagementService {
     return this.http.get(`${this.api}/dishes/${idDish}`, this.httpHeaders);
   }
 
-  addDish(dish: Dish): Observable<any> {    
+  addDish(dish: Dish): Observable<any> {
     return this.http.post(`${this.api}/dishes`, dish, this.httpHeaders);
   }
   getDishByName(name: string): Observable<any> {
@@ -84,7 +84,7 @@ export class ManagementService {
 
   updateDishes(idDish: number, updatedDish: Dish): Observable<any> {
     console.log(updatedDish);
-    
+
     return this.http.put(
       `${this.api}/dishes/${idDish}`,
       updatedDish,
@@ -238,7 +238,7 @@ export class ManagementService {
 
   addDishAllergen(dishAllergen: DishAllergen | any): Observable<any> {
     console.log(dishAllergen);
-    
+
     return this.http.post(
       `${this.api}/dishallergens`,
       dishAllergen,

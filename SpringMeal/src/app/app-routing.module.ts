@@ -22,27 +22,29 @@ import { CreateAllergenComponent } from './Admin/create-allergen/create-allergen
 import { AboutUsComponent } from './about-us/about-us.component';
 import { DishListComponent } from './OrdersDishes/dish-list/dish-list.component';
 import { CreateDishComponent } from './Admin/create-dish/create-dish.component';
+import { guardsGuard } from './Security/guards.guard';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'login' },
+   //path: '', pathMatch: 'full', redirectTo: 'login'
+
   { path: 'login', component: LoginComponent },
-  { path: 'sign-up', component: RegisterComponent },
-  { path: 'welcome', component: WelcomeComponent },
-  { path: 'order', component: OrderComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'about-us', component: AboutUsComponent },
-  { path: 'admin/order', component: AdminOrderComponent },
-  { path: 'admin/category', component: AdminCategoryComponent },
-  { path: 'admin/slot', component: AdminSlotComponent },
-  { path: 'admin/user', component: AdminUserComponent },
-  { path: 'admin/dish', component: AdminDishComponent },
-  { path: 'admin/allergen', component: AdminAllergenComponent },
-  { path: 'admin/create-user', component: CreateUserComponent },
-  { path: 'admin/create-order', component: CreateOrderComponent },
-  { path: 'admin/create-allergen', component: CreateAllergenComponent },
-  { path: 'admin/create-category', component: CreateCategoryComponent },
-  { path: 'admin/create-dish', component: CreateDishComponent },
+  { path: 'sign-up', component: RegisterComponent},
+  { path: 'welcome', component: WelcomeComponent},
+  { path: 'order', component: OrderComponent, canActivate: [guardsGuard] },
+  { path: 'contact', component: ContactComponent, canActivate: [guardsGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [guardsGuard] },
+  { path: 'about-us', component: AboutUsComponent, canActivate: [guardsGuard] },
+  { path: 'admin/order', component: AdminOrderComponent, canActivate: [guardsGuard] },
+  { path: 'admin/category', component: AdminCategoryComponent, canActivate: [guardsGuard] },
+  { path: 'admin/slot', component: AdminSlotComponent, canActivate: [guardsGuard] },
+  { path: 'admin/user', component: AdminUserComponent, canActivate: [guardsGuard] },
+  { path: 'admin/dish', component: AdminDishComponent, canActivate: [guardsGuard] },
+  { path: 'admin/allergen', component: AdminAllergenComponent, canActivate: [guardsGuard] },
+  { path: 'admin/create-user', component: CreateUserComponent, canActivate: [guardsGuard] },
+  { path: 'admin/create-order', component: CreateOrderComponent, canActivate: [guardsGuard] },
+  { path: 'admin/create-allergen', component: CreateAllergenComponent, canActivate: [guardsGuard] },
+  { path: 'admin/create-category', component: CreateCategoryComponent, canActivate: [guardsGuard] },
+  { path: 'admin/create-dish', component: CreateDishComponent, canActivate: [guardsGuard] },
   { path: '**', redirectTo: 'login', pathMatch: 'full' },
 ];
 

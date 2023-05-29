@@ -22,16 +22,19 @@ export class UserServiceService {
   }
 
   login(user: any): Observable<any> {
-    //return this.http.post('http://localhost:6752/api/auth/signin', user);
+   //return this.http.post('http://localhost:6752/api/auth/signin', user);
     return this.http.post(`${this.api}/auth/signin`, user);
   }
+
+  validateToken(): Observable<any> {
+    return this.http.get(`${this.api}/auth/validate-jwt`, this.httpHeaders);
+  }
+
   register(user:any):Observable<any>{
     //return this.http.post('http://localhost:6752/api/auth/signup', user, {responseType: 'text'});
     return this.http.post(`${this.api}/auth/signup`, user, {responseType: 'text'});
   }
   get(id:string): Observable<any> {
-    console.log(`${this.api}/users/${id}`);
-
     return this.http.get(`${this.api}/users/${id}`, this.httpHeaders);
   }
   update(id:string, user:any): Observable<any> {
