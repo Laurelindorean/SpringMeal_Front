@@ -32,7 +32,7 @@ at 15:00, which means there will be 16 15-minute time slots available.
 
 # Deploys
 
-Back-End and Database Server : Railway
+Back-End and Database Server : Railway <br>
 Front-End: AWS Amplify
 
 # Website
