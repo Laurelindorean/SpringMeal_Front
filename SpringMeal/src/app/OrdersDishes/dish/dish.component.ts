@@ -16,12 +16,29 @@ import { DishEditDialog } from 'src/app/Modal/dish-edit-dialog/dish-edit-dialog.
 export class DishComponent {
 
   @Input() dish: any;
-  @Input() allergens : Record<number,any[]> = {}
   @Input() actions: any;
   @Output() deleteMe : EventEmitter<any> = new EventEmitter;
+  @Input() allergens : any;
 
 
-  constructor(public utils : UtilsService, private management : ManagementService, public dialog: MatDialog)  {}
+  constructor(public utils : UtilsService, private management : ManagementService, public dialog: MatDialog)  {
+    //this.updateAllergens();
+    console.log(this.allergens);
+    
+  }
+
+  updateAllergens() {
+    this.management.getDishAllergenByDish(this.dish.id).subscribe(
+      (data) => {
+        this.allergens = data;
+        console.log(data);
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
+
+  }
 
   addToChart() {
     this.dish.chart = true;
@@ -45,7 +62,6 @@ export class DishComponent {
     }).then((result) => {
       if (result.value) {
         this.delete();
-        Swal.fire('Removed!', 'Product removed successfully.', 'success');
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire('Cancelled', 'Product still in our database.)', 'error');
       }
@@ -57,9 +73,11 @@ export class DishComponent {
     this.management.deleteDish(this.dish.id).subscribe(
       (response) => {
         this.deleteMe.emit();
+        Swal.fire('Removed!', 'Product removed successfully.', 'success');
       },
       (error) => {
         console.log(error);
+        Swal.fire('Ooops!', 'Something went wrong.', 'error');
       }
     );
   }
@@ -68,6 +86,8 @@ export class DishComponent {
     enterAnimationDuration: string,
     exitAnimationDuration: string
   ): void {
+    console.log(this.allergens);
+    
     const dialogRef = this.dialog.open(DishEditDialog, {
       width: '50%',
       autoFocus: true,
@@ -79,7 +99,16 @@ export class DishComponent {
       data: this.dish,
     });
     dialogRef.afterClosed().subscribe((idAllergen) => {
-      //his.allergenUpdated.emit(idAllergen);
+      this.management.getDishAllergenByDish(this.dish.id).subscribe(
+        (data) => {
+          this.allergens = [];
+          for (const dishallergen of data) {
+            this.allergens.push(dishallergen.allergens.name);
+          }
+        },
+        (error) => {console.log(error);
+        }
+      )
     });
   }
 }

@@ -16,6 +16,7 @@ import { DatePipe } from '@angular/common';
 import Swal from 'sweetalert2';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { UserServiceService } from 'src/app/Service/user-service.service';
+import { UtilsService } from 'src/app/Service/utils.service';
 //import '@angular/compiler'
 
 @Component({
@@ -34,7 +35,8 @@ export class OrderComponent implements OnInit {
     private management: ManagementService,
     private fb: FormBuilder,
     private router: Router,
-    private userService : UserServiceService
+    private userService : UserServiceService,
+    private utils : UtilsService
   ) {
     this.form = new FormGroup({
       date: new FormControl(''),
@@ -105,14 +107,14 @@ export class OrderComponent implements OnInit {
       }
     }
     console.log(request);
-    this.management.addOrderByAdmin(request).subscribe(
+    this.management.addOrder(request).subscribe(
       (data) => {
         Swal.fire({
           position: 'center',
           icon: 'success',
           title: 'Order created',
           showConfirmButton: false,
-          timer: 1000
+          timer1000
         })
         this.router.navigateByUrl('/welcome')
         

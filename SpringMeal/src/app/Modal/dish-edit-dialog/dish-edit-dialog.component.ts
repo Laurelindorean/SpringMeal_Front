@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, EventEmitter, Inject, OnInit } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
@@ -25,6 +25,8 @@ export class DishEditDialog implements OnInit {
   categories! : any[];
   image : string = "";
   dish : any;
+  allergens! : any[];
+  updateAllergens : EventEmitter<any[]> = new EventEmitter<any[]>;
 
   constructor(
     public utils : UtilsService,
@@ -92,28 +94,50 @@ export class DishEditDialog implements OnInit {
     }
     this.dish.name = this.form.value.name;
     this.dish.price = +this.form.value.price;
-    this.dish.category =  this.categories.find((x) => x.id === this.form.value.category);
+    this.dish.category = this.categories.find((x) => x.id === this.form.value.category);
     this.dish.description = this.form.value.description;
     if (this.image != "") {
       this.dish.image = this.image;
     }
-    console.log(this.categories);
-    console.log("this.val.cat:");
-    
+    console.log(this.categories);    
     console.log(this.dish.category);
+    console.log("qwerty");
+
+    for (let allergen of this.allergens) {
+      if (allergen.diff === 1) {
+        this.management.addDishAllergen({
+          allergens : {id : allergen.id},
+          dish : {id : this.dish.id}
+        }).subscribe(
+          (data) => {console.log("ok"); console.log(data);},
+          (error) => {console.log(error);}
+        )
+      }
+      else if (allergen.diff === -1) {
+        this.management.deleteDishAllergen(allergen.allergendishid).subscribe(
+          (data) => {console.log("ok"); console.log(data);},
+          (error) => {console.log(error);}
+        )
+      }
+    }
+    
     
     this.dialogRef.close();
 
-    this.management.updateDishes(this.dish.id, this.dish).subscribe((data) => {
-      console.log(data);
-      Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Dish updated',
-        showConfirmButton: false,
-        timer: 1500
-      })
-    });
+    this.management.updateDishes(this.dish.id, this.dish).subscribe(
+      (data) => {
+        console.log(data);
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Dish updated',
+          showConfirmButton: false,
+          timer1000
+        })
+      }, (error) => {
+
+      }
+    );
   }
 
   return() {
@@ -132,5 +156,10 @@ export class DishEditDialog implements OnInit {
     reader.readAsBinaryString(file);
     reader.onload = (event:any) => result.next(btoa(event.target.result.toString()));
     return result;
+  }
+
+  onAllergensChange(allergens : any[]) {
+    console.log(allergens);
+    this.allergens = allergens;
   }
 }

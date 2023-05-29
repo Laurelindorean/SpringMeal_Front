@@ -37,7 +37,7 @@ export class CreateCategoryComponent implements OnInit{
           icon: 'success',
           title: 'Category created',
           showConfirmButton: false,
-          timer: 1500
+          timer1000
         })
         this.cleanRegisterForm();
       }

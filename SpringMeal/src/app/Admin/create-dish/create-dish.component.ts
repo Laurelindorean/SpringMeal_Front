@@ -23,6 +23,7 @@ export class CreateDishComponent implements OnInit {
   submitted = false;
   categories! : any[];
   image : string = "";
+  allergens! : any[];
 
   constructor(
     private management: ManagementService,
@@ -82,14 +83,27 @@ export class CreateDishComponent implements OnInit {
     dish.image = this.image;
     this.management.addDish(dish).subscribe((data) => {
       console.log(data);
+      dish = data;
+      for (let allergen of this.allergens) {
+        if (allergen.diff === 1) {
+          console.log(allergen);
+          
+          this.management.addDishAllergen({
+            allergens : {id : allergen.id},
+            dish : {id : dish.id}
+          }).subscribe(
+            (data) => {console.log("ok"); console.log(data);},
+            (error) => {console.log(error);}
+          )
+        }        
+      }
       Swal.fire({
         position: 'center',
         icon: 'success',
         title: 'Dish created',
         showConfirmButton: false,
-        timer: 1500
+        timer1000
       })
-      //this.cleanRegisterForm();
     });
   }
 
@@ -109,5 +123,11 @@ export class CreateDishComponent implements OnInit {
     reader.readAsBinaryString(file);
     reader.onload = (event:any) => result.next(btoa(event.target.result.toString()));
     return result;
+  }
+
+  onAllergensChange(allergens : any[]) {
+    console.log(allergens);
+    this.allergens = allergens;
+    
   }
 }

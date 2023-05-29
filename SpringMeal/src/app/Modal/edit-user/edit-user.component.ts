@@ -97,7 +97,7 @@ export class EditUserComponent implements OnInit {
           icon: 'success',
           title: 'User updated',
           showConfirmButton: false,
-          timer: 1500
+          timer1000
         });
         this.dialogRef.close(this.user.idUser);
       });

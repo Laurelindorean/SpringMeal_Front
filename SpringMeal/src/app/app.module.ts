@@ -54,10 +54,10 @@ import { CategoryButtonModal } from "./Modal/Category/Category-button-modal/cate
 import {NgxPaginationModule} from 'ngx-pagination';
 import {MatSortModule} from '@angular/material/sort';
 import { ChartComponent } from './OrdersDishes/chart/chart.component';
-import { AllergenComponent } from './OrdersDishes/allergen/allergen.component';
 import { CreateDishComponent } from './Admin/create-dish/create-dish.component';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { DishEditDialog } from './Modal/dish-edit-dialog/dish-edit-dialog.component';
+import { AllergenPickerComponent } from './OrdersDishes/allergen-picker/allergen-picker.component';
 
 
 
@@ -88,9 +88,9 @@ import { DishEditDialog } from './Modal/dish-edit-dialog/dish-edit-dialog.compon
         FooterComponent,
         AboutUsComponent,
         ChartComponent,
-        AllergenComponent,
         CreateDishComponent,
-        DishEditDialog
+        DishEditDialog,
+        AllergenPickerComponent
     ],
     providers: [CookieService],
     bootstrap: [AppComponent],

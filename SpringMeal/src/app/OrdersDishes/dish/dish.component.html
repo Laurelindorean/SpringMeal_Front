@@ -18,8 +18,8 @@
                     {{ utils.capitalizeFirst(dish.description) }}
                 </p>
                 <p class="card-text">                    
-                    <span *ngFor="let allergen of allergens[dish.id]">
-                        {{ allergen }}
+                    <span *ngFor="let allergen of allergens" style="font-size: small;">
+                        <i>{{ allergen.toLowerCase()+"   " }}</i>
                     </span>
                 </p>
                 <p class="card-text"><strong> 

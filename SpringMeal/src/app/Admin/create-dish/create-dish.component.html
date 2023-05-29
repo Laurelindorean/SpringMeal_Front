@@ -1,7 +1,7 @@
 <app-navbar-admin></app-navbar-admin>
 <div class="container-block">
   <mat-toolbar class="border-radius-lg">
-    <span>Order Creation</span>
+    <span>Dish Creation</span>
   </mat-toolbar>
   <mat-card style="margin-top: 30px">
     <mat-card-content>
@@ -51,28 +51,30 @@
             <p>Image: </p>  
             <input (change)="onFileSelected($event)" #fileInput label="image" accept=".png" type="file" id="file"> 
           </mat-grid-tile>
-
-          <mat-grid-tile [colspan]="4" [rowspan]="1"
-            ><button
-              type="submit"
-              class="button-left"
-              [disabled]="form.invalid"
-              mat-raised-button
-              style="background-color: #e20074; color: white"
-            >
-              Save
-            </button>
-            <button
-              (click)="return()"
-              class="button-right"
-              mat-raised-button
-              style="background-color: #e20074; color: white"
-            >
-              Back
-            </button>
-            </mat-grid-tile
-          >
         </mat-grid-list>
+        <div class="w-100 text-center">
+          <app-allergen-picker (onChange)="onAllergensChange($event)"></app-allergen-picker>
+        </div>
+        <div class="w-100 text-center">
+          <button
+            type="submit"
+            class="button-left"
+            [disabled]="form.invalid"
+            mat-raised-button
+            style="background-color: #e20074; color: white"
+          >
+            Save
+          </button>
+          <button
+            (click)="return()"
+            class="button-right"
+            mat-raised-button
+            style="background-color: #e20074; color: white"
+          >
+            Back
+          </button>
+        </div>
+        
       </form>
     </mat-card-content>
   </mat-card>
