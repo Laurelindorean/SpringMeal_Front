@@ -46,18 +46,21 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AcceptTermsComponent } from './Modal/accept-terms/accept-terms.component';
 import { FooterComponent } from './footer/footer.component';
-import { OrderButtonModal } from "./Modal/Order/Order-button-modal/order-button-modal";
+import { OrderButtonModal } from './Modal/Order/Order-button-modal/order-button-modal';
 import { AboutUsComponent } from './about-us/about-us.component';
-import { AllergenButtonModal } from "./Modal/Allergen/Allergen-button-modal/allergen-button-modal";
-import { CategoryEditDialog } from "./Modal/Category/Category-edit-dialog/category-edit-dialog";
-import { CategoryButtonModal } from "./Modal/Category/Category-button-modal/category-button-modal";
-import {NgxPaginationModule} from 'ngx-pagination';
-import {MatSortModule} from '@angular/material/sort';
+import { AllergenButtonModal } from './Modal/Allergen/Allergen-button-modal/allergen-button-modal';
+import { CategoryEditDialog } from './Modal/Category/Category-edit-dialog/category-edit-dialog';
+import { CategoryButtonModal } from './Modal/Category/Category-button-modal/category-button-modal';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { MatSortModule } from '@angular/material/sort';
 import { ChartComponent } from './OrdersDishes/chart/chart.component';
 import { CreateDishComponent } from './Admin/create-dish/create-dish.component';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { DishEditDialog } from './Modal/dish-edit-dialog/dish-edit-dialog.component';
 import { AllergenPickerComponent } from './OrdersDishes/allergen-picker/allergen-picker.component';
+import { DishButtonModal } from "./Modal/Dish/Dish-button-modal/dish-button-modal";
+import { DishDialogModal } from './Modal/Dish/Dish-dialog-modal/dish-dialog-modal';
+
 
 
 
@@ -123,7 +126,8 @@ import { AllergenPickerComponent } from './OrdersDishes/allergen-picker/allergen
         CategoryButtonModal,
         NgxPaginationModule,
         MatSortModule,
-        MaterialFileInputModule
+        MaterialFileInputModule,
+        DishButtonModal
     ]
 })
 export class AppModule {}
