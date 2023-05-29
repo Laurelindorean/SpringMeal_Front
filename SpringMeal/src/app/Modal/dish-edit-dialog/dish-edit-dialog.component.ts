@@ -91,7 +91,7 @@ export class DishEditDialog implements OnInit {
       return;
     }
     this.dish.name = this.form.value.name;
-    this.dish.price = this.form.value.price;
+    this.dish.price = +this.form.value.price;
     this.dish.category =  this.categories.find((x) => x.id === this.form.value.category);
     this.dish.description = this.form.value.description;
     if (this.image != "") {
@@ -102,7 +102,8 @@ export class DishEditDialog implements OnInit {
     
     console.log(this.dish.category);
     
-    
+    this.dialogRef.close();
+
     this.management.updateDishes(this.dish.id, this.dish).subscribe((data) => {
       console.log(data);
       Swal.fire({
@@ -112,7 +113,6 @@ export class DishEditDialog implements OnInit {
         showConfirmButton: false,
         timer: 1500
       })
-      //this.cleanRegisterForm();
     });
   }
 

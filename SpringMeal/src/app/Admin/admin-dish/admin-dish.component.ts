@@ -20,9 +20,6 @@ export class AdminDishComponent implements OnInit {
       (data) => {
         console.log(data);
         this.dishes = data;
-        this.dishes.forEach(dishs => {
-          dishs.chart = false;
-        })
         console.log(this.dishes);
       },
       (error) => {
