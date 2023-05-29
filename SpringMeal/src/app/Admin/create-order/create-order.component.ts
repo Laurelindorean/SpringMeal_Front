@@ -11,6 +11,7 @@ import { ManagementService } from 'src/app/Service/management.service';
 import { DatePipe } from '@angular/common';
 import Swal from 'sweetalert2';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { UtilsService } from 'src/app/Service/utils.service';
 
 @Component({
   selector: 'app-create-order',
@@ -85,7 +86,7 @@ export class CreateOrderComponent implements OnInit {
           icon: 'success',
           title: 'Order created',
           showConfirmButton: false,
-          timer: 1500
+          timer : 1000
         })
         this.cleanRegisterForm();
       }

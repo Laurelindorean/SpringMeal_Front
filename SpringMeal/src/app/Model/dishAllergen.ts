@@ -1,5 +1,5 @@
 export class DishAllergen {
-  idDishAllergen!:number;
+  idDishAllergen?:number;
   idDish!:number;
   idAllergen!:number;
 }

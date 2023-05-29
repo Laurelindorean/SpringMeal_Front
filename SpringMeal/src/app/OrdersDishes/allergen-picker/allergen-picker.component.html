@@ -1,0 +1,10 @@
+<span *ngFor="let allergen of allergens">
+    <button 
+        [ngClass]="allergen.active ? 'btn bg-gradient-secondary shadow-dark' : 'btn'"
+        type="button"
+        (click)="toggle(allergen)"
+        style="border-radius: 0;"
+    >
+        {{allergen.name}}
+    </button>
+</span>

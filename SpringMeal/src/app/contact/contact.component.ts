@@ -35,7 +35,7 @@ export class ContactComponent implements OnInit{
       icon: 'success',
       title: 'Thank you! we will contact you as soon as possible',
       showConfirmButton: false,
-      timer: 1500,
+      timer : 1000,
     });
     this.cleanRegisterForm();
   }

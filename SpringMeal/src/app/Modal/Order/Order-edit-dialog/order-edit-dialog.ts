@@ -128,7 +128,7 @@ export class OrderEditDialog implements OnInit {
           icon: 'success',
           title: 'Order updated',
           showConfirmButton: false,
-          timer: 1500
+          timer : 1000
         });
       });
   }

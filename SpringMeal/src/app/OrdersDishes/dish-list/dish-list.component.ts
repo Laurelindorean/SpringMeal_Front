@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ManagementService } from 'src/app/Service/management.service';
 import { UtilsService } from '../../Service/utils.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-dish-list',
@@ -39,14 +40,20 @@ export class DishListComponent {
     this.management.getAllDishAllergens().subscribe(
       (data) => {
         data.forEach((allergen_dish : any) => {
-          if (!(allergen_dish.dish.id in this.allergens)) {
-            this.allergens[allergen_dish.dish.id] = [];
+          if (allergen_dish.dish) {
+            if (!(allergen_dish.dish.id in this.allergens)) {
+              this.allergens[allergen_dish.dish.id] = [];
+            }
+            this.allergens[allergen_dish.dish.id].push(
+              allergen_dish.allergens.name
+            );
           }
-          this.allergens[allergen_dish.dish.id].push(allergen_dish.allergens.name);
         });
+        
         console.log(this.allergens);
       },
       (error) => {
+        Swal.fire('Ooops!', 'Something went wrong.', 'error');
         console.log(error);
       }
     )

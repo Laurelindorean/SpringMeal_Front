@@ -63,7 +63,7 @@ export class ManagementService {
     return this.http.get(`${this.api}/dishes/${idDish}`, this.httpHeaders);
   }
 
-  addDish(dish: Dish): Observable<any> {
+  addDish(dish: Dish): Observable<any> {    
     return this.http.post(`${this.api}/dishes`, dish, this.httpHeaders);
   }
   getDishByName(name: string): Observable<any> {
@@ -236,7 +236,9 @@ export class ManagementService {
     return this.http.get(`${this.api}/dishallergens`, this.httpHeaders);
   }
 
-  addDishAllergen(dishAllergen: DishAllergen): Observable<any> {
+  addDishAllergen(dishAllergen: DishAllergen | any): Observable<any> {
+    console.log(dishAllergen);
+    
     return this.http.post(
       `${this.api}/dishallergens`,
       dishAllergen,
@@ -262,6 +264,13 @@ export class ManagementService {
     );
   }
 
+  getDishAllergenByDish(idDish: number): Observable<any> {
+    return this.http.get(
+      `${this.api}/dishallergens/dish/${idDish}`,
+      this.httpHeaders
+    );
+  }
+
   deleteDishAllergen(idDishAllergen: number): Observable<any> {
     return this.http.delete(
       `${this.api}/dishallergens/${idDishAllergen}`,
@@ -275,7 +284,7 @@ export class ManagementService {
     return this.http.get(`${this.api}/orderdish`, this.httpHeaders);
   }
 
-  addOrderDish(orderDish: OrderDish): Observable<any> {
+  addOrderDish(orderDish: OrderDish | any): Observable<any> {
     return this.http.post(`${this.api}/orderdish`, orderDish, this.httpHeaders);
   }
 

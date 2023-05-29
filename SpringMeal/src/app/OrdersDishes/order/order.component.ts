@@ -16,6 +16,7 @@ import { DatePipe } from '@angular/common';
 import Swal from 'sweetalert2';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { UserServiceService } from 'src/app/Service/user-service.service';
+import { UtilsService } from 'src/app/Service/utils.service';
 //import '@angular/compiler'
 
 @Component({
@@ -34,7 +35,8 @@ export class OrderComponent implements OnInit {
     private management: ManagementService,
     private fb: FormBuilder,
     private router: Router,
-    private userService : UserServiceService
+    private userService : UserServiceService,
+    private utils : UtilsService
   ) {
     this.form = new FormGroup({
       date: new FormControl(''),
@@ -96,7 +98,7 @@ export class OrderComponent implements OnInit {
       return;
     }
 
-    let request = {
+    let new_order = {
       date:  new DatePipe('en-US').transform(this.form.value.date, 'YYYY-MM-dd') ,
       slot: {
         id: this.form.value.slot.id
@@ -105,15 +107,26 @@ export class OrderComponent implements OnInit {
         id: Number(this.userService.getUserID())
       }
     }
-    console.log(request);
-    this.management.addOrder(request).subscribe(
+    console.log(new_order);
+    this.management.addOrder(new_order).subscribe(
       (data) => {
+        let id_order = data.id;
+        for (let dish of this.dishes) {
+          if (dish.chart) {
+            this.management.addOrderDish({
+              dish : {id : dish.id},
+              order : {id : id_order}
+            })
+          }
+        }
+
+
         Swal.fire({
           position: 'center',
           icon: 'success',
           title: 'Order created',
           showConfirmButton: false,
-          timer: 1000
+          timer : 1000
         })
         this.router.navigateByUrl('/welcome')
 

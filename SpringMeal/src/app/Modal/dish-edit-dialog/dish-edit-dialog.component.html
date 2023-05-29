@@ -56,6 +56,9 @@
                     <input (change)="onFileSelected($event)" #fileInput label="image" accept=".png" type="file" id="file"> 
                   </mat-grid-tile>
                 </mat-grid-list>
+                <div class="w-100 text-center">
+                  <app-allergen-picker [dish_id]="dish.id" (onChange)="onAllergensChange($event)"></app-allergen-picker>
+                </div>
             </form>
         </mat-card-content>
       </mat-card>

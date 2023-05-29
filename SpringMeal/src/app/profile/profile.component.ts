@@ -3,6 +3,7 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
 import { UserServiceService } from '../Service/user-service.service';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { UtilsService } from '../Service/utils.service';
 
 @Component({
   selector: 'app-profile',
@@ -20,7 +21,8 @@ export class ProfileComponent {
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserServiceService,
-    public router: Router
+    public router: Router,
+    private utils : UtilsService
   ) {
     /*this.form = new FormGroup({
       username: new FormControl(''),

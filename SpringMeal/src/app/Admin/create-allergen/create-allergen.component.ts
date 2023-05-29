@@ -42,7 +42,7 @@ export class CreateAllergenComponent implements OnInit {
           icon: 'success',
           title: 'Allergen created',
           showConfirmButton: false,
-          timer: 1500
+          timer : 1000
         })
         this.cleanRegisterForm();
       }

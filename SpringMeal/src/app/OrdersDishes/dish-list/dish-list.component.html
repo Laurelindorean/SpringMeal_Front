@@ -9,14 +9,14 @@
                   <ul class="nav nav-tabs">
                     <li class="nav-item" *ngFor="let category of categories" style="font-size: 16px;">
                       <a class="nav-link" [class.active]="currentCategory === category" (click)="changeCategory(category)">
-                        {{ utils.capitalizeFirst(category)}}
+                        {{ utils.capitalizeFirst(category) }}
                       </a>
                     </li>
                   </ul>
                 </div>
                 <div *ngFor="let dish of dishes">
                   <div *ngIf="dish.category.name === currentCategory">
-                    <app-dish [dish]="dish" [allergens]="allergens" [actions]="actions" (deleteMe)="deleteDish(dish)"></app-dish>
+                    <app-dish [dish]="dish" [actions]="actions" [allergens]="allergens[dish.id]" (deleteMe)="deleteDish(dish)"></app-dish>
                   </div>
                 </div>
               </div>

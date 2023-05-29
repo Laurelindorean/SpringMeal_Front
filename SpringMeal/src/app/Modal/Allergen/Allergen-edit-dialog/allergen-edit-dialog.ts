@@ -69,7 +69,7 @@ export class AllergenEditDialog implements OnInit {
           icon: 'success',
           title: 'Allergen updated',
           showConfirmButton: false,
-          timer: 1500
+          timer : 1000
         });
         this.dialogRef.close(this.allergen.idAllergen);
       }

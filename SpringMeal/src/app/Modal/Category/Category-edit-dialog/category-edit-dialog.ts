@@ -86,7 +86,7 @@ export class CategoryEditDialog implements OnInit {
             icon: 'success',
             title: 'Category updated',
             showConfirmButton: false,
-            timer: 1500
+            timer : 1000
           });
           this.dialogRef.close(this.category.idCategory);
         },
