@@ -135,7 +135,7 @@ export class DishEditDialog implements OnInit {
           timer : 1000
         })
       }, (error) => {
-
+        Swal.fire('Something went wrong', 'Apparently your image exceeds the maximum size (16 MB)', 'error');
       }
     );
   }

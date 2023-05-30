@@ -82,6 +82,7 @@ export class CreateDishComponent implements OnInit {
     let dish = this.form.value;
     dish.image = this.image;
     this.management.addDish(dish).subscribe((data) => {
+      
       console.log(data);
       dish = data;
       for (let allergen of this.allergens) {
@@ -93,7 +94,11 @@ export class CreateDishComponent implements OnInit {
             dish : {id : dish.id}
           }).subscribe(
             (data) => {console.log("ok"); console.log(data);},
-            (error) => {console.log(error);}
+            (error) => {
+              Swal.fire('Ooops!', 'Something went wrong.', 'error');
+              console.log("error allergen");
+              console.log(error);
+            }
           )
         }        
       }
@@ -104,7 +109,15 @@ export class CreateDishComponent implements OnInit {
         showConfirmButton: false,
         timer : 1000
       })
-    });
+      this.router.navigateByUrl('/admin/create-dish');
+    }, (error) => {
+      Swal.fire('Something went wrong', 'Apparently your image exceeds the maximum size (16 MB)', 'error');
+      console.log("error dish");
+      console.log(error);
+    
+    }
+    
+    );
   }
 
   return() {
