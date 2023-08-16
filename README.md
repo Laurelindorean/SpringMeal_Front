@@ -11,7 +11,7 @@
  # Project:
   Dining Reservation
   
-  #Description:
+  # Description:
   
  Our Barcelona offices are located in a building where we also have a dining area with
 catering service. In order to avoid overcrowding during peak hours, we need a web
